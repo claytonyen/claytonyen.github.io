@@ -200,7 +200,7 @@ function renderProjects() {
       links.appendChild(a);
     }
     if (proj.repoUrl) {
-      const a = el("a", null, "Code ↗");
+      const a = el("a", null, "Repo ↗");
       a.href = proj.repoUrl; a.target = "_blank"; a.rel = "noopener";
       links.appendChild(a);
     }
