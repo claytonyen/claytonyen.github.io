@@ -13,7 +13,7 @@ const PROFILE = {
     "audio electronics, and motor control, from simulation to breadboard to" +
     " PCB.",
   resumeUrl: "resume.pdf", // put a resume.pdf next to index.html, or link elsewhere
-  email: "claytonyen@.com",
+  email: "claytonyen@gmail.com",
   github: "https://github.com/claytonyen",
   linkedin: "https://linkedin.com/in/claytonyen",
   // add more links here if you want, e.g. twitter, personal blog, etc.
