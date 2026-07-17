@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ada Reyes — Portfolio</title>
+<meta name="description" content="Portfolio of Ada Reyes, software engineer.">
+
+<!-- ===================================================================
+  Change the browser tab title above, and the meta description.
+  Fonts loaded below — no need to touch this block.
+=================================================================== -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- corner crop marks -- purely decorative, sheet/blueprint motif -->
+<div class="crop crop-tl" aria-hidden="true"></div>
+<div class="crop crop-tr" aria-hidden="true"></div>
+<div class="crop crop-bl" aria-hidden="true"></div>
+<div class="crop crop-br" aria-hidden="true"></div>
+
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="nav" id="nav">
+  <div class="nav-inner">
+    <a href="#top" class="nav-mark" id="nav-mark">AR</a>
+    <nav aria-label="Primary">
+      <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+    <a class="nav-cta" id="nav-resume" href="#" target="_blank" rel="noopener">Résumé ↗</a>
+  </div>
+</header>
+
+<main id="main">
+
+  <!-- ============================ HERO ============================ -->
+  <section class="hero" id="top">
+    <div class="hero-grid" aria-hidden="true"></div>
+    <div class="hero-inner">
+      <p class="eyebrow mono">SHEET NO. 01 — INTRODUCTION</p>
+      <h1 class="hero-name" id="hero-name">Ada Reyes</h1>
+      <p class="hero-role" id="hero-role">Backend-leaning software engineer</p>
+      <p class="hero-tagline" id="hero-tagline">
+        I design and build systems that hold up under real load —
+        APIs, data pipelines, and the occasional weekend prototype
+        that refuses to stay a prototype.
+      </p>
+      <div class="hero-actions">
+        <a href="#projects" class="btn btn-primary">View projects</a>
+        <a href="#contact" class="btn btn-ghost">Get in touch</a>
+      </div>
+    </div>
+    <div class="hero-target" aria-hidden="true">
+      <svg viewBox="0 0 200 200" width="180" height="180">
+        <circle cx="100" cy="100" r="90" class="ring ring-a"/>
+        <circle cx="100" cy="100" r="60" class="ring ring-b"/>
+        <line x1="100" y1="0" x2="100" y2="200" class="crosshair"/>
+        <line x1="0" y1="100" x2="200" y2="100" class="crosshair"/>
+        <circle cx="100" cy="100" r="3" class="dot"/>
+      </svg>
+    </div>
+    <a href="#about" class="scroll-cue" aria-label="Scroll to content">
+      <span></span>
+    </a>
+  </section>
+
+  <!-- ============================ ABOUT ============================ -->
+  <section class="section" id="about">
+    <div class="section-inner">
+      <div class="section-label">
+        <span class="fig mono">FIG. 02</span>
+        <span class="fig-title">About</span>
+      </div>
+      <div class="about-grid">
+        <p class="about-bio" id="about-bio">
+          Placeholder bio — replace me in <code>script.js</code>. I'm a
+          software engineer who likes turning ambiguous problems into
+          systems with clear edges: predictable APIs, sane data models,
+          and dashboards nobody has to squint at. Outside of work I'm
+          usually deep in a side project, a climbing gym, or both.
+        </p>
+        <dl class="spec-sheet" id="about-facts">
+          <!-- filled by script.js from ABOUT.facts -->
+        </dl>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================= EXPERIENCE ========================== -->
+  <section class="section" id="experience">
+    <div class="section-inner">
+      <div class="section-label">
+        <span class="fig mono">FIG. 03</span>
+        <span class="fig-title">Experience</span>
+      </div>
+      <ol class="timeline" id="timeline">
+        <!-- filled by script.js from EXPERIENCE -->
+      </ol>
+    </div>
+  </section>
+
+  <!-- ========================== PROJECTS =========================== -->
+  <section class="section" id="projects">
+    <div class="section-inner">
+      <div class="section-label">
+        <span class="fig mono">FIG. 04</span>
+        <span class="fig-title">Selected projects</span>
+      </div>
+      <div class="project-grid" id="project-grid">
+        <!-- filled by script.js from PROJECTS -->
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================== SKILLS ============================ -->
+  <section class="section" id="skills">
+    <div class="section-inner">
+      <div class="section-label">
+        <span class="fig mono">FIG. 05</span>
+        <span class="fig-title">Tools &amp; skills</span>
+      </div>
+      <div class="skills-grid" id="skills-grid">
+        <!-- filled by script.js from SKILLS -->
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- =========================== CONTACT / TITLE BLOCK =========================== -->
+<footer class="titleblock" id="contact">
+  <div class="titleblock-inner">
+    <div class="tb-row tb-head">
+      <span class="mono">DRAWN BY</span>
+      <span class="mono">SHEET</span>
+      <span class="mono">REV.</span>
+    </div>
+    <div class="tb-row tb-values">
+      <span id="tb-name">Ada Reyes</span>
+      <span class="mono">06 / 06</span>
+      <span class="mono" id="tb-rev">2026</span>
+    </div>
+    <div class="tb-main">
+      <h2>Let's build something.</h2>
+      <p id="contact-blurb">Open to new roles and interesting collaborations — reach out any of these ways.</p>
+      <ul class="tb-links" id="contact-links">
+        <!-- filled by script.js from PROFILE -->
+      </ul>
+    </div>
+    <div class="tb-row tb-foot">
+      <span class="mono">© <span id="tb-year"></span></span>
+      <span class="mono">Built with HTML/CSS/JS</span>
+    </div>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
