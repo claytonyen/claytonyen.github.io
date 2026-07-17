@@ -10,7 +10,7 @@ const PROFILE = {
   role: "Electrical engineer focused on analog circuit design",
   tagline:
     "Aspiring analog IC designer working across signal processing, " +
-    "audio electronics, and motor control. From simulation to breadboard to" +
+    "audio electronics, and motor control, from simulation to breadboard to" +
     " PCB.",
   resumeUrl: "resume.pdf", // put a resume.pdf next to index.html, or link elsewhere
   email: "claytonyen@.com",
