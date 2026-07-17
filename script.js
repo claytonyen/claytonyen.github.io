@@ -5,17 +5,17 @@
    ============================================================================ */
 
 const PROFILE = {
-  name: "Ada Reyes",
-  initials: "AR",
-  role: "Backend-leaning software engineer",
+  name: "Clayton Yen",
+  initials: "CY",
+  role: "Electrical engineer focused on analog circuit design",
   tagline:
-    "I design and build systems that hold up under real load — APIs, " +
-    "data pipelines, and the occasional weekend prototype that refuses " +
-    "to stay a prototype.",
+    "Aspiring analog IC designer working across signal processing, " +
+    "audio electronics, and motor control. From simulation to breadboard to" +
+    " PCB.",
   resumeUrl: "resume.pdf", // put a resume.pdf next to index.html, or link elsewhere
-  email: "hello@example.com",
-  github: "https://github.com/yourusername",
-  linkedin: "https://linkedin.com/in/yourusername",
+  email: "claytonyen@.com",
+  github: "https://github.com/claytonyen",
+  linkedin: "https://linkedin.com/in/claytonyen",
   // add more links here if you want, e.g. twitter, personal blog, etc.
   extraLinks: [
     // { label: "Blog", url: "https://example.com" },
@@ -26,96 +26,92 @@ const PROFILE = {
 
 const ABOUT = {
   bio:
-    "I'm a software engineer who likes turning ambiguous problems into " +
-    "systems with clear edges: predictable APIs, sane data models, and " +
-    "dashboards nobody has to squint at. Outside of work I'm usually " +
-    "deep in a side project, a climbing gym, or both.",
+    "I'm an electrical engineer who likes understanding a system from the " +
+    "ground up. As a result, I gravitate towards projects where I can be" +
+    " apart of the entire design process: designing, simulating, measuring," +
+    " and most importantly improving. My hobbies include guitar, rock climbing" +
+     " and documenting my outdoor adventures through photography.",
   facts: [
-    { label: "Based in", value: "Remote / Los Angeles, CA" },
-    { label: "Focus", value: "Backend systems, developer tooling" },
-    { label: "Stack", value: "TypeScript, Go, Postgres, AWS" },
-    { label: "Currently", value: "Building at Company Name" },
+    { label: "Based in", value: "San Diego, CA" },
+    { label: "Focus", value: "Analog electronics & IC design" },
+    { label: "Education", value: "B.S. EE University of Illinois Urbana-Champaign 2028" },
+    { label: "Currently", value: "Student" },
   ],
 };
 
 // Most recent first.
 const EXPERIENCE = [
   {
-    role: "Senior Software Engineer",
-    company: "Company Name",
-    location: "Remote",
-    start: "2023",
-    end: "Present",
+    role: "PCB Designer",
+    company: "Zephyr Boards",
+    location: "Urbana, IL",
+    start: "2025",
+    end: "2026",
     bullets: [
-      "Led the redesign of the core billing pipeline, cutting invoice errors by 40%.",
-      "Mentored two junior engineers and ran the team's weekly design reviews.",
-      "Introduced integration tests that caught regressions before they hit prod.",
+      "Designed a three-phase current-sensing circuit for a BLDC motor controller, using bidirectional current-sense amplifiers and precision shunt resistors for closed-loop motor control.",
+      "Optimized PCB component placement and routing, reducing board size ~10% to meet enclosure and cost constraints while preserving controlled-impedance signal integrity.",
+      "Sourced and qualified pin-compatible replacement parts from alternate vendors when original components went obsolete, avoiding board respins and keeping the project on schedule.",
     ],
-    tags: ["TypeScript", "Node.js", "PostgreSQL", "AWS"],
-  },
-  {
-    role: "Software Engineer",
-    company: "Previous Company",
-    location: "San Francisco, CA",
-    start: "2021",
-    end: "2023",
-    bullets: [
-      "Built the internal analytics API used by 4 downstream product teams.",
-      "Migrated a legacy monolith service to a set of independently deployable services.",
-    ],
-    tags: ["Go", "Docker", "Kubernetes"],
-  },
-  {
-    role: "Software Engineering Intern",
-    company: "Earlier Company",
-    location: "New York, NY",
-    start: "2020",
-    end: "2020",
-    bullets: [
-      "Shipped a self-serve onboarding flow that reduced support tickets by 15%.",
-    ],
-    tags: ["React", "Python"],
-  },
+    tags: ["Altium", "PCB Design", "Motor Control", "Analog Circuit Design"],
+  } // make sure to add a comma here once you add another experience
+ // {
+//    role: "Software Engineering Intern",
+ //   company: "Earlier Company",
+//    location: "New York, NY",
+//    start: "2020",
+//    end: "2020",
+//    bullets: [
+//      "Shipped a self-serve onboarding flow that reduced support tickets by 15%.",
+//    ],
+//    tags: ["React", "Python"],
+//  },
   // Copy any block above, paste it here, and edit the fields to add another role.
 ];
 
 const PROJECTS = [
   {
-    title: "Project One",
+    title: "Gated Reverb & Distortion Electric Guitar Pedal",
     description:
-      "A short, concrete description of what the project does and who it's for — one or two sentences is plenty.",
-    tags: ["TypeScript", "Next.js", "Postgres"],
-    liveUrl: "https://example.com",
-    repoUrl: "https://github.com/yourusername/project-one",
-    featured: true,
-  },
-  {
-    title: "Project Two",
-    description:
-      "Same idea — say what it does, what problem it solves, and any interesting technical detail worth flagging.",
-    tags: ["Go", "Redis"],
+      "Pedal that features customizable reverb and distortion levels, as well as toggleable gate feature.",
+    tags: ["LTSpice", "Analog Circuit Design"],
     liveUrl: "",
-    repoUrl: "https://github.com/yourusername/project-two",
+    repoUrl: "https://github.com/claytonyen/gated-reverb-distortion",
     featured: false,
   },
   {
-    title: "Project Three",
+    title: "Resistor Color Code Reader GUI",
     description:
-      "A smaller tool, script, or experiment. Not everything needs a live demo — a repo link is enough.",
-    tags: ["Python", "CLI"],
-    liveUrl: "",
-    repoUrl: "https://github.com/yourusername/project-three",
+      "User chooses band colors to get resistor value or inputs resistor value for band color. Streamlines breadboard prototyping.",
+    tags: ["Python"],
+    liveUrl: "", // add this
+    repoUrl: "https://github.com/claytonyen/resistor-code-reader",
     featured: false,
   },
+  {
+    title: "Electra Distortion Electric Guitar Pedal",
+    description:
+      "Pedal that uses CE amplifier and diode clipping stage for distortion effect. Has multiple iterations with different clipping stages.",
+    tags: ["LTSpice", "Analog Circuit Design"],
+    liveUrl: "",
+    repoUrl: "https://github.com/claytonyen/electra-distortion-pedal",
+    featured: false,
+  },
+  {
+    title: "Chorus Electric Guitar Pedal",
+    description:
+      "Pedal that utilizes PT2399 IC to achieve chorus effect.",
+    tags: ["LTSpice", "Analog Circuit Design"],
+    liveUrl: "",
+    repoUrl: "https://github.com/claytonyen/chorus-pedal",
+    featured: false,
+   },
   // Copy any block above, paste it here, and edit the fields to add another project.
   // Leave liveUrl or repoUrl as "" to hide that link on the card.
 ];
 
 const SKILLS = [
-  { category: "Languages", items: ["TypeScript", "Go", "Python", "SQL"] },
-  { category: "Backend", items: ["Node.js", "PostgreSQL", "Redis", "REST", "GraphQL"] },
-  { category: "Infra", items: ["AWS", "Docker", "Kubernetes", "GitHub Actions"] },
-  { category: "Frontend", items: ["React", "Next.js", "Tailwind CSS"] },
+  { category: "Languages", items: ["Python", "C++", "LaTeX"] },
+  { category: "Software", items: ["Altium Designer", "OnShape", "Adobe Lightroom", "Davinci Resolve"] },
 ];
 
 /* ============================================================================
