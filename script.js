@@ -70,12 +70,12 @@ const EXPERIENCE = [
 
 const PROJECTS = [
   {
-    title: "Gated Reverb & Distortion Electric Guitar Pedal",
+    title: "Reverb Electric Guitar Pedal",
     description:
-      "Pedal that features customizable reverb and distortion levels, as well as toggleable gate feature.",
-    tags: ["LTSpice", "Analog Circuit Design"],
+      "Pedal that features fast reverb or dark reverb with pre-delay.",
+    tags: ["Analog Circuit Design"],
     liveUrl: "",
-    repoUrl: "https://github.com/claytonyen/gated-reverb-distortion",
+    repoUrl: "https://github.com/claytonyen/reverb-pedal",
     featured: false,
   },
   {
