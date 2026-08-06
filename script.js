@@ -79,6 +79,15 @@ const PROJECTS = [
     featured: false,
   },
   {
+    title: "3-Channel Equalizer Electric Guitar Pedal",
+    description:
+      "Equalizer pedal has 3 near-independent channel modification to shape audio signal",
+    tags: ["LTSpice", "Analog Circuit Design"],
+    liveUrl: "",
+    repoUrl: "https://github.com/claytonyen/3-channel-eq-pedal",
+    featured: false,
+   }, 
+  {
     title: "Resistor Color Code Reader GUI",
     description:
       "User chooses band colors to get resistor value or inputs resistor value for band color. Streamlines breadboard prototyping.",
@@ -96,15 +105,6 @@ const PROJECTS = [
     repoUrl: "https://github.com/claytonyen/electra-distortion-pedal",
     featured: false,
   },
-  {
-    title: "Chorus Electric Guitar Pedal",
-    description:
-      "Pedal that utilizes PT2399 IC to achieve chorus effect.",
-    tags: ["LTSpice", "Analog Circuit Design"],
-    liveUrl: "",
-    repoUrl: "https://github.com/claytonyen/chorus-pedal",
-    featured: false,
-   },
   // Copy any block above, paste it here, and edit the fields to add another project.
   // Leave liveUrl or repoUrl as "" to hide that link on the card.
 ];
