@@ -21,7 +21,7 @@ const PROFILE = {
     // { label: "Blog", url: "https://example.com" },
   ],
   contactBlurb:
-    "Open to new roles and interesting collaborations — reach out any of these ways.",
+    "Reach out any of these ways.",
 };
 
 const ABOUT = {
@@ -34,7 +34,7 @@ const ABOUT = {
   facts: [
     { label: "Based in", value: "San Diego, CA" },
     { label: "Focus", value: "Analog electronics & IC design" },
-    { label: "Education", value: "B.S. EE University of Illinois Urbana-Champaign 2028" },
+    { label: "Education", value: "B.S. Electrical Engineering\nUniversity of Illinois Urbana-Champaign 2028" },
     { label: "Currently", value: "Student" },
   ],
 };
@@ -111,7 +111,7 @@ const PROJECTS = [
 
 const SKILLS = [
   { category: "Languages", items: ["Python", "C++", "LaTeX"] },
-  { category: "Software", items: ["Altium Designer", "OnShape", "Adobe Lightroom", "Davinci Resolve"] },
+  { category: "Software", items: ["Altium Designer", "KiCad", "LTspice", "VS Code", "Git", "OnShape", "Adobe Suite", "Davinci Resolve"] },
 ];
 
 /* ============================================================================
