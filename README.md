@@ -6,8 +6,7 @@
 - `style.css` — all styling. Colors, fonts, and spacing are set as CSS
   variables at the top of the file under `:root`.
 - `script.js` — content, everything on the page (name, bio, jobs, projects, skills, links) is
-  defined in a few plain JavaScript objects at the top of this file, then rendered into the page
-  automatically.
+  defined in a few plain JavaScript objects at the top of this file.
 
 ## Editing content
 
@@ -24,7 +23,7 @@ Objects found in `script.js`:
 
 ### Adding résumé
 
-Drop a `resume.pdf` file next to `index.html`, or change `resumeUrl` in
+Upload `resume.pdf` file next to `index.html`, or change `resumeUrl` in
 `PROFILE` to point anywhere else (e.g. a Google Drive link).
 
 ### Changing colors or fonts
