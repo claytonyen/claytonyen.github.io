@@ -48,7 +48,7 @@ const EXPERIENCE = [
     start: "2025",
     end: "2026",
     bullets: [
-      "Designed a three-phase current-sensing circuit for a BLDC motor controller, using bidirectional current-sense amplifiers and precision shunt resistors for closed-loop motor control.",
+      "Optimized three-phase current-sensing circuit for a BLDC motor controller, using bidirectional current-sense amplifiers and precision shunt resistors for closed-loop motor control.",
       "Optimized PCB component placement and routing, reducing board size ~10% to meet enclosure and cost constraints while preserving controlled-impedance signal integrity.",
       "Sourced and qualified pin-compatible replacement parts from alternate vendors when original components went obsolete, avoiding board respins and keeping the project on schedule.",
     ],
