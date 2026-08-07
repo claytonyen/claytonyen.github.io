@@ -29,8 +29,9 @@ const ABOUT = {
     "I'm an electrical engineer who likes understanding a system from the " +
     "ground up. As a result, I gravitate towards projects where I can be" +
     " apart of the entire design process: designing, simulating, measuring," +
-    " and most importantly improving. My hobbies include guitar, rock climbing" +
-     " and documenting my outdoor adventures through photography.",
+    " and most importantly improving. When I'm not in the lab, you can find " +
+     "playing guitar, rock climbing, or documenting my outdoor adventures " +
+     "through photography.",
   facts: [
     { label: "Based in", value: "San Diego, CA" },
     { label: "Focus", value: "Analog electronics & IC design" },
