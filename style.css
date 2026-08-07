@@ -334,3 +334,45 @@ code { font-family: var(--f-mono); background: var(--paper-dim); padding: 0.1em 
   .tb-row { grid-template-columns: 1fr 1fr; }
   .tb-row span:nth-child(3) { display: none; }
 }
+
+/* -- project card additions ------------------------------------------ */
+.pc-thumb {
+  width: 100%; aspect-ratio: 16 / 10; border-radius: var(--radius);
+  overflow: hidden; background: var(--paper);
+  border: 1px solid rgba(20,26,31,0.1);
+}
+.pc-thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.pc-expand {
+  font-size: 12px; color: var(--blue); margin-top: auto; padding-top: 4px;
+}
+.project-card { cursor: pointer; }
+.project-card:focus-visible { outline: 2px solid var(--blue); outline-offset: 3px; }
+
+/* -- project modal ------------------------------------------------------ */
+.pm-overlay {
+  position: fixed; inset: 0; z-index: 300;
+  background: rgba(16, 24, 38, 0.6);
+  display: none; align-items: center; justify-content: center;
+  padding: 24px;
+}
+.pm-overlay.is-open { display: flex; }
+.pm-panel {
+  position: relative; background: var(--paper);
+  max-width: 720px; width: 100%; max-height: 86vh; overflow-y: auto;
+  border-radius: var(--radius); padding: 40px;
+  border: 1px solid rgba(20,26,31,0.15);
+}
+.pm-close {
+  position: absolute; top: 16px; right: 16px;
+  width: 32px; height: 32px; border-radius: 50%;
+  border: 1px solid rgba(20,26,31,0.2); background: var(--paper-dim);
+  font-size: 14px; cursor: pointer;
+}
+.pm-close:hover { background: var(--ink); color: var(--paper); }
+.pm-title { font-size: 1.6rem; margin-bottom: 20px; padding-right: 40px; }
+.pm-image {
+  width: 100%; border-radius: var(--radius); margin-bottom: 20px;
+  border: 1px solid rgba(20,26,31,0.1);
+}
+.pm-desc { color: var(--ink-soft); margin-bottom: 20px; white-space: pre-line; }
+.pm-panel .tag-row { margin-bottom: 20px; }
