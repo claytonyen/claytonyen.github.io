@@ -102,7 +102,7 @@ const PROJECTS = [
     title: "Resistor Color Code Reader GUI",
     description:
       "User chooses band colors to get resistor value or inputs resistor value for band color. Streamlines breadboard prototyping.",
-    tags: ["Python"],
+    tags: ["Python", "TKinter"],
     liveUrl: "", // add this
     repoUrl: "https://github.com/claytonyen/resistor-code-reader",
     featured: false,
@@ -136,7 +136,7 @@ const SKILLS = [
 ];
 
 /* ============================================================================
-   RENDERING — you shouldn't need to edit anything below this line.
+   RENDERING
    ============================================================================ */
 
 function el(tag, className, html) {
