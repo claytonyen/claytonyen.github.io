@@ -92,8 +92,8 @@ const PROJECTS = [
     liveUrl: "",
     repoUrl: "https://github.com/claytonyen/3-channel-eq-pedal",
     featured: false,
-    image: "", // e.g. "projects/reverb-pedal.jpg" — photo of the built pedal
-    measurementImage: "", // e.g. "projects/reverb-freq-response.png"
+    image: "media/Circuit_Screenshot.png", // e.g. "projects/reverb-pedal.jpg" — photo of the built pedal
+    measurementImage: "media/Frequency_Response_Screenshot.png", // e.g. "projects/reverb-freq-response.png"
     longDescription:
       "Add a fuller writeup here — design goals, topology choices, what to " +
       "improve next time, measured results, etc. This shows in the expanded view only.",
@@ -106,8 +106,8 @@ const PROJECTS = [
     liveUrl: "", // add this
     repoUrl: "https://github.com/claytonyen/resistor-code-reader",
     featured: false,
-    image: "", // e.g. "projects/reverb-pedal.jpg" — photo of the built pedal
-    measurementImage: "", // e.g. "projects/reverb-freq-response.png"
+    image: "media/Resistor_Reader.png",
+    measurementImage: "",
     longDescription:
       "Add a fuller writeup here — design goals, topology choices, what to " +
       "improve next time, measured results, etc. This shows in the expanded view only.",
@@ -120,7 +120,7 @@ const PROJECTS = [
     liveUrl: "",
     repoUrl: "https://github.com/claytonyen/electra-distortion-pedal",
     featured: false,
-    image: "", // e.g. "projects/reverb-pedal.jpg" — photo of the built pedal
+    image: "media/electra_breadboard_1.png", // e.g. "projects/reverb-pedal.jpg" — photo of the built pedal
     measurementImage: "", // e.g. "projects/reverb-freq-response.png"
     longDescription:
       "Add a fuller writeup here — design goals, topology choices, what to " +
