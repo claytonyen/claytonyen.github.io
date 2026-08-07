@@ -180,10 +180,6 @@ function renderProjects() {
     const card = el("article", "project-card reveal");
     if (proj.featured) card.appendChild(el("span", "pc-featured", "FEATURED"));
 
-    const head = el("div", "pc-head");
-    head.appendChild(el("span", "pc-index mono", `NO. ${String(i + 1).padStart(2, "0")}`));
-    card.appendChild(head);
-
     card.appendChild(el("h3", "pc-title", proj.title));
     card.appendChild(el("p", "pc-desc", proj.description));
 
