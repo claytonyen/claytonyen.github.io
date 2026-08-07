@@ -211,6 +211,7 @@ function renderProjects() {
       const img = el("img");
       img.src = proj.image;
       img.alt = proj.title;
+      if (proj.imageFit === "contain") img.style.objectFit = "contain";
       thumb.appendChild(img);
       card.appendChild(thumb);
     }
@@ -254,6 +255,7 @@ function openProjectModal(proj) {
     const img = el("img", "pm-image");
     img.src = proj.image;
     img.alt = proj.title;
+    if (proj.imageFit === "contain") img.style.objectFit = "contain";
     content.appendChild(img);
   }
 
