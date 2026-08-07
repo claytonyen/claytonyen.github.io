@@ -77,6 +77,11 @@ const PROJECTS = [
     liveUrl: "",
     repoUrl: "https://github.com/claytonyen/reverb-pedal",
     featured: false,
+    image: "", // e.g. "projects/reverb-pedal.jpg" — photo of the built pedal
+    measurementImage: "", // e.g. "projects/reverb-freq-response.png"
+    longDescription:
+      "Add a fuller writeup here — design goals, topology choices, what to " +
+      "improve next time, measured results, etc. This shows in the expanded view only.",
   },
   {
     title: "3-Channel Equalizer Electric Guitar Pedal",
@@ -86,6 +91,11 @@ const PROJECTS = [
     liveUrl: "",
     repoUrl: "https://github.com/claytonyen/3-channel-eq-pedal",
     featured: false,
+    image: "", // e.g. "projects/reverb-pedal.jpg" — photo of the built pedal
+    measurementImage: "", // e.g. "projects/reverb-freq-response.png"
+    longDescription:
+      "Add a fuller writeup here — design goals, topology choices, what to " +
+      "improve next time, measured results, etc. This shows in the expanded view only.",
    }, 
   {
     title: "Resistor Color Code Reader GUI",
@@ -95,6 +105,11 @@ const PROJECTS = [
     liveUrl: "", // add this
     repoUrl: "https://github.com/claytonyen/resistor-code-reader",
     featured: false,
+    image: "", // e.g. "projects/reverb-pedal.jpg" — photo of the built pedal
+    measurementImage: "", // e.g. "projects/reverb-freq-response.png"
+    longDescription:
+      "Add a fuller writeup here — design goals, topology choices, what to " +
+      "improve next time, measured results, etc. This shows in the expanded view only.",
   },
   {
     title: "Electra Distortion Electric Guitar Pedal",
@@ -104,6 +119,11 @@ const PROJECTS = [
     liveUrl: "",
     repoUrl: "https://github.com/claytonyen/electra-distortion-pedal",
     featured: false,
+    image: "", // e.g. "projects/reverb-pedal.jpg" — photo of the built pedal
+    measurementImage: "", // e.g. "projects/reverb-freq-response.png"
+    longDescription:
+      "Add a fuller writeup here — design goals, topology choices, what to " +
+      "improve next time, measured results, etc. This shows in the expanded view only.",
   },
   // Copy any block above, paste it here, and edit the fields to add another project.
   // Leave liveUrl or repoUrl as "" to hide that link on the card.
@@ -178,7 +198,20 @@ function renderProjects() {
   const grid = document.getElementById("project-grid");
   PROJECTS.forEach((proj, i) => {
     const card = el("article", "project-card reveal");
+    card.tabIndex = 0;
+    card.setAttribute("role", "button");
+    card.setAttribute("aria-haspopup", "dialog");
+
     if (proj.featured) card.appendChild(el("span", "pc-featured", "FEATURED"));
+
+    if (proj.image) {
+      const thumb = el("div", "pc-thumb");
+      const img = el("img");
+      img.src = proj.image;
+      img.alt = proj.title;
+      thumb.appendChild(img);
+      card.appendChild(thumb);
+    }
 
     card.appendChild(el("h3", "pc-title", proj.title));
     card.appendChild(el("p", "pc-desc", proj.description));
@@ -189,20 +222,86 @@ function renderProjects() {
       card.appendChild(tagRow);
     }
 
-    const links = el("div", "pc-links");
-    if (proj.liveUrl) {
-      const a = el("a", null, "Live ↗");
-      a.href = proj.liveUrl; a.target = "_blank"; a.rel = "noopener";
-      links.appendChild(a);
-    }
-    if (proj.repoUrl) {
-      const a = el("a", null, "Repo ↗");
-      a.href = proj.repoUrl; a.target = "_blank"; a.rel = "noopener";
-      links.appendChild(a);
-    }
-    if (links.children.length) card.appendChild(links);
+    card.appendChild(el("span", "pc-expand mono", "View details →"));
+
+    const openHandler = (e) => {
+      // don't trigger modal if a repo/live link inside the card was clicked
+      if (e.target.closest("a")) return;
+      openProjectModal(proj);
+    };
+    card.addEventListener("click", openHandler);
+    card.addEventListener("keydown", (e) => {
+      if (e.key === "Enter" || e.key === " ") {
+        e.preventDefault();
+        openProjectModal(proj);
+      }
+    });
 
     grid.appendChild(card);
+  });
+}
+
+function openProjectModal(proj) {
+  const overlay = document.getElementById("project-modal");
+  const content = document.getElementById("project-modal-content");
+  content.innerHTML = "";
+
+  content.appendChild(el("h2", "pm-title", proj.title));
+
+  if (proj.image) {
+    const img = el("img", "pm-image");
+    img.src = proj.image;
+    img.alt = proj.title;
+    content.appendChild(img);
+  }
+
+  content.appendChild(el("p", "pm-desc", proj.longDescription || proj.description));
+
+  if (proj.measurementImage) {
+    const measImg = el("img", "pm-image pm-measurement");
+    measImg.src = proj.measurementImage;
+    measImg.alt = `${proj.title} — measurement`;
+    content.appendChild(measImg);
+  }
+
+  if (proj.tags && proj.tags.length) {
+    const tagRow = el("div", "tag-row");
+    proj.tags.forEach((t) => tagRow.appendChild(el("span", "tag", t)));
+    content.appendChild(tagRow);
+  }
+
+  const links = el("div", "pc-links");
+  if (proj.liveUrl) {
+    const a = el("a", null, "Live ↗");
+    a.href = proj.liveUrl; a.target = "_blank"; a.rel = "noopener";
+    links.appendChild(a);
+  }
+  if (proj.repoUrl) {
+    const a = el("a", null, "Repo ↗");
+    a.href = proj.repoUrl; a.target = "_blank"; a.rel = "noopener";
+    links.appendChild(a);
+  }
+  if (links.children.length) content.appendChild(links);
+
+  overlay.classList.add("is-open");
+  document.body.style.overflow = "hidden";
+  overlay.querySelector(".pm-close").focus();
+}
+
+function closeProjectModal() {
+  const overlay = document.getElementById("project-modal");
+  overlay.classList.remove("is-open");
+  document.body.style.overflow = "";
+}
+
+function setupModal() {
+  const overlay = document.getElementById("project-modal");
+  overlay.querySelector(".pm-close").addEventListener("click", closeProjectModal);
+  overlay.addEventListener("click", (e) => {
+    if (e.target === overlay) closeProjectModal();
+  });
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && overlay.classList.contains("is-open")) closeProjectModal();
   });
 }
 
@@ -266,6 +365,7 @@ function init() {
   renderProjects();
   renderSkills();
   renderContact();
+  setupModal();
   setupScrollReveal();
 }
 
