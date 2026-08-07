@@ -223,8 +223,6 @@ function renderSkills() {
 }
 
 function renderContact() {
-  document.getElementById("tb-name").textContent = PROFILE.name;
-  document.getElementById("tb-year").textContent = new Date().getFullYear();
   document.getElementById("contact-blurb").textContent = PROFILE.contactBlurb;
 
   const linksList = document.getElementById("contact-links");
