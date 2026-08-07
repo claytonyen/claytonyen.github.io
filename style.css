@@ -106,7 +106,6 @@ code { font-family: var(--f-mono); background: var(--paper-dim); padding: 0.1em 
   width: 34px; height: 34px; display: grid; place-items: center;
   border: 1px solid var(--ink); border-radius: 50%;
 }
-.nav-right { display: flex; align-items: center; gap: 14px; }
 
 .nav-links { display: flex; gap: 28px; }
 .nav-links a {
