@@ -46,8 +46,8 @@ const EXPERIENCE = [
     role: "PCB Designer",
     company: "Zephyr Boards",
     location: "Urbana, IL",
-    start: "2025",
-    end: "2026",
+    start: "Dec. 2025",
+    end: "May 2026",
     bullets: [
       "Improved three-phase current-sensing circuit for a BLDC motor controller, using bidirectional current-sense amplifiers and precision shunt resistors for closed-loop motor control.",
       "Optimized PCB component placement and routing in Altium, reducing board size ~10% to meet enclosure and cost constraints while preserving controlled-impedance signal integrity.",
