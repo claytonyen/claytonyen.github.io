@@ -30,7 +30,7 @@ const ABOUT = {
     "ground up. As a result, I gravitate towards projects where I can be" +
     " apart of the entire design process: designing, simulating, measuring," +
     " and most importantly improving. When I'm not in the lab, you can find " +
-     "playing guitar, rock climbing, or documenting my outdoor adventures " +
+     "me playing guitar, rock climbing, or documenting my outdoor adventures " +
      "through photography.",
   facts: [
     { label: "Based in", value: "San Diego, CA" },
