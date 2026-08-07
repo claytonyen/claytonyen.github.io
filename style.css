@@ -106,12 +106,15 @@ code { font-family: var(--f-mono); background: var(--paper-dim); padding: 0.1em 
   width: 34px; height: 34px; display: grid; place-items: center;
   border: 1px solid var(--ink); border-radius: 50%;
 }
+.nav-right { display: flex; align-items: center; gap: 14px; }
+
 .nav-links { display: flex; gap: 28px; }
 .nav-links a {
   font-family: var(--f-mono); font-size: 13px; text-transform: uppercase; letter-spacing: 0.06em;
   color: var(--ink-soft); transition: color 0.15s ease;
 }
 .nav-links a:hover { color: var(--blue); }
+
 .nav-cta {
   font-family: var(--f-mono); font-size: 13px;
   border: 1px solid var(--ink); border-radius: var(--radius);
@@ -120,7 +123,37 @@ code { font-family: var(--f-mono); background: var(--paper-dim); padding: 0.1em 
   white-space: nowrap;
 }
 .nav-cta:hover { background: var(--ink); color: var(--paper); }
-@media (max-width: 760px) { .nav-links { display: none; } }
+
+/* -- mobile dropdown toggle -------------------------------------------- */
+.nav-toggle {
+  display: none;
+  flex-direction: column; justify-content: center; gap: 5px;
+  width: 34px; height: 34px;
+  border: 1px solid var(--ink); border-radius: var(--radius);
+  background: transparent; cursor: pointer; padding: 0;
+}
+.nav-toggle span {
+  display: block; width: 16px; height: 1.5px; background: var(--ink);
+  margin: 0 auto; transition: transform 0.2s ease, opacity 0.2s ease;
+}
+.nav-toggle[aria-expanded="true"] span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+.nav-toggle[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
+.nav-toggle[aria-expanded="true"] span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+
+@media (max-width: 760px) {
+  .nav-toggle { display: flex; }
+  .nav-links {
+    display: flex; flex-direction: column; gap: 0;
+    position: absolute; top: 100%; left: 0; right: 0;
+    background: var(--paper);
+    border-bottom: 1px solid rgba(20,26,31,0.1);
+    max-height: 0; overflow: hidden;
+    transition: max-height 0.25s ease;
+  }
+  .nav-links.is-open { max-height: 320px; }
+  .nav-links li { border-top: 1px solid rgba(20,26,31,0.08); }
+  .nav-links a { display: block; padding: 14px var(--edge); font-size: 13px; }
+}
 
 /* ==========================================================================
    HERO
