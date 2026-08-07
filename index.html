@@ -29,9 +29,6 @@
 <header class="nav" id="nav">
   <div class="nav-inner">
     <a href="#top" class="nav-mark" id="nav-mark">AR</a>
-    <button class="nav-toggle" id="nav-toggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="nav-links">
-      <span></span><span></span><span></span>
-    </button>
     <nav aria-label="Primary">
       <ul class="nav-links" id="nav-links">
         <li><a href="#about">About</a></li>
@@ -41,7 +38,12 @@
         <li><a href="#contact">Contact</a></li>
       </ul>
     </nav>
-    <a class="nav-cta" id="nav-resume" href="#" target="_blank" rel="noopener">Résumé ↗</a>
+    <div class="nav-actions">
+      <a class="nav-cta" id="nav-resume" href="#" target="_blank" rel="noopener">Résumé ↗</a>
+      <button class="nav-toggle" id="nav-toggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="nav-links">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
   </div>
 </header>
 
