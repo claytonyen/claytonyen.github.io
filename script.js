@@ -107,6 +107,7 @@ const PROJECTS = [
     repoUrl: "https://github.com/claytonyen/resistor-code-reader",
     featured: false,
     image: "media/Resistor_Reader.png",
+    imageFit: "contain",
     measurementImage: "",
     longDescription:
       "Add a fuller writeup here — design goals, topology choices, what to " +
