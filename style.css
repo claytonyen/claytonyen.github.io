@@ -122,7 +122,10 @@ code { font-family: var(--f-mono); background: var(--paper-dim); padding: 0.1em 
   white-space: nowrap;
 }
 .nav-cta:hover { background: var(--ink); color: var(--paper); }
-.nav-actions { display: flex; align-items: center; gap: 12px; }
+.nav-actions {
+  display: flex; flex-direction: row; flex-wrap: nowrap;
+  align-items: center; gap: 12px; flex-shrink: 0;
+}
 
 /* -- mobile dropdown toggle -------------------------------------------- */
 .nav-toggle {
@@ -131,6 +134,7 @@ code { font-family: var(--f-mono); background: var(--paper-dim); padding: 0.1em 
   width: 34px; height: 34px;
   border: 1px solid var(--ink); border-radius: var(--radius);
   background: transparent; cursor: pointer; padding: 0;
+  flex-shrink: 0;
 }
 .nav-toggle span {
   display: block; width: 16px; height: 1.5px; background: var(--ink);
