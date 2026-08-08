@@ -122,6 +122,7 @@ code { font-family: var(--f-mono); background: var(--paper-dim); padding: 0.1em 
   white-space: nowrap;
 }
 .nav-cta:hover { background: var(--ink); color: var(--paper); }
+.nav-actions { display: flex; align-items: center; gap: 12px; }
 
 /* -- mobile dropdown toggle -------------------------------------------- */
 .nav-toggle {
