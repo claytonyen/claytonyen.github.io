@@ -72,23 +72,6 @@ code { font-family: var(--f-mono); background: var(--paper-dim); padding: 0.1em 
 }
 
 /* ==========================================================================
-   CROP MARKS  — signature motif: this page reads as a technical sheet
-   ========================================================================== */
-.crop {
-  position: fixed;
-  width: 22px; height: 22px;
-  border: 1px solid var(--ink);
-  opacity: 0.28;
-  z-index: 150;
-  pointer-events: none;
-}
-.crop-tl { top: 14px; left: 14px; border-right: none; border-bottom: none; }
-.crop-tr { top: 14px; right: 14px; border-left: none; border-bottom: none; }
-.crop-bl { bottom: 14px; left: 14px; border-right: none; border-top: none; }
-.crop-br { bottom: 14px; right: 14px; border-left: none; border-top: none; }
-@media (max-width: 640px) { .crop { display: none; } }
-
-/* ==========================================================================
    NAV
    ========================================================================== */
 .nav {
