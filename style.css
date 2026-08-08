@@ -8,11 +8,11 @@
   --paper-dim:  #E3E7E2;   /* recessed panels on paper */
   --ink:        #141A1F;   /* primary text */
   --ink-soft:   #4A555C;   /* secondary text */
-  --blue:       #2C5F8A;   /* blueprint line color, links, accents */
-  --blue-soft:  #6FA8D0;   /* grid lines, faint rules */
-  --navy:       #101826;   /* dark section / footer background */
-  --navy-line:  #24344A;   /* rules on navy */
-  --amber:      #D98E32;   /* single warm highlight — spend sparingly */
+  --blue:       #A8322A;   /* accent color, links, hovers. currently: red*/ 
+  --blue-soft:  #D98A82;   /* grid lines, faint rules, tag borders. currently: red */
+  --navy:       #14161A;   /* dark section / footer background, neutral. currently: grayscale */
+  --navy-line:  #2B2E34;   /* rules on navy, neutral. currently: grayscale */
+  --amber:      #3E9E93;   /* single cool highlight — spend sparingly. currently: teal */
 
   /* -- type ------------------------------------------------------------ */
   --f-display: 'Space Grotesk', system-ui, sans-serif;
