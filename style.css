@@ -279,7 +279,7 @@ code { font-family: var(--f-mono); background: var(--paper-dim); padding: 0.1em 
 .tag {
   font-family: var(--f-mono); font-size: 11.5px; color: var(--blue);
   border: 1px solid var(--blue-soft); border-radius: 20px; padding: 3px 10px;
-  background: rgba(111,168,208,0.08);
+  background: rgba(217, 138, 130, 0.08);
 }
 
 /* ==========================================================================
