@@ -192,14 +192,15 @@ code { font-family: var(--f-mono); background: var(--paper-dim); padding: 0.1em 
 .btn-ghost:hover { transform: translateY(-2px); background: rgba(20,26,31,0.06); }
 
 .hero-photo {
-  position: absolute; right: 14%; top: 50%; transform: translateY(-50%);
+  position: absolute; right: 10%; top: 50%; transform: translateY(-50%);
   z-index: 1;
-  width: 340px; height: 340px;
-  border-radius: 50%;
+  width: 300px; height: 400px;
+  border-radius: var(--radius);
   border: 1px solid rgba(20,26,31,0.15);
   background: var(--paper-dim);
   overflow: hidden;
 }
+
 .hero-photo img {
   width: 100%; height: 100%; object-fit: cover; display: block;
 }
