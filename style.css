@@ -284,12 +284,6 @@ code { font-family: var(--f-mono); background: var(--paper-dim); padding: 0.1em 
 .ti-bullets { color: var(--ink-soft); font-size: 0.98rem; display: grid; gap: 6px; margin-bottom: 12px; }
 .ti-bullets li { position: relative; padding-left: 16px; }
 .ti-bullets li::before { content: "—"; position: absolute; left: 0; color: var(--blue-soft); }
-.tag-row { display: flex; flex-wrap: wrap; gap: 8px; }
-.tag {
-  font-family: var(--f-mono); font-size: 11.5px; color: var(--blue);
-  border: 1px solid var(--blue-soft); border-radius: 20px; padding: 3px 10px;
-  background: rgba(217, 138, 130, 0.08);
-}
 
 /* ==========================================================================
    PROJECTS
