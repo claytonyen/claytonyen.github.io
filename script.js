@@ -53,7 +53,7 @@ const EXPERIENCE = [
       "Optimized PCB component placement and routing in Altium, reducing board size ~10% to meet enclosure and cost constraints while preserving controlled-impedance signal integrity.",
       "Sourced and qualified pin-compatible replacement parts from alternate vendors when original components went obsolete, avoiding board respins and keeping the project on schedule.",
     ],
-    tags: ["Altium", "PCB Design", "Motor Control", "Analog Circuit Design"],
+
   } // make sure to add a comma here once you add another experience
  // {
 //    role: "Software Engineering Intern",
@@ -184,12 +184,6 @@ function renderExperience() {
       const bullets = el("ul", "ti-bullets");
       job.bullets.forEach((b) => bullets.appendChild(el("li", null, b)));
       item.appendChild(bullets);
-    }
-
-    if (job.tags && job.tags.length) {
-      const tagRow = el("div", "tag-row");
-      job.tags.forEach((t) => tagRow.appendChild(el("span", "tag", t)));
-      item.appendChild(tagRow);
     }
 
     timeline.appendChild(item);
