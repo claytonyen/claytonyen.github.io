@@ -218,13 +218,6 @@ function renderProjects() {
 
     card.appendChild(el("h3", "pc-title", proj.title));
     card.appendChild(el("p", "pc-desc", proj.description));
-
-    if (proj.tags && proj.tags.length) {
-      const tagRow = el("div", "tag-row");
-      proj.tags.forEach((t) => tagRow.appendChild(el("span", "tag", t)));
-      card.appendChild(tagRow);
-    }
-
     card.appendChild(el("span", "pc-expand mono", "View details →"));
 
     const openHandler = (e) => {
@@ -266,12 +259,6 @@ function openProjectModal(proj) {
     measImg.src = proj.measurementImage;
     measImg.alt = `${proj.title} — measurement`;
     content.appendChild(measImg);
-  }
-
-  if (proj.tags && proj.tags.length) {
-    const tagRow = el("div", "tag-row");
-    proj.tags.forEach((t) => tagRow.appendChild(el("span", "tag", t)));
-    content.appendChild(tagRow);
   }
 
   const links = el("div", "pc-links");
