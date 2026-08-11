@@ -206,26 +206,6 @@ code { font-family: var(--f-mono); background: var(--paper-dim); padding: 0.1em 
 }
 @media (max-width: 900px) { .hero-photo { display: none; } }
 
-.scroll-cue {
-  position: absolute; bottom: 32px; left: 50%; transform: translateX(-50%);
-  opacity: 0.5;
-}
-.scroll-cue svg {
-  display: block;
-  animation: cue-bounce 2s ease-in-out infinite;
-}
-.scroll-cue polyline {
-  fill: none;
-  stroke: var(--ink-soft);
-  stroke-width: 2;
-  stroke-linecap: round;
-  stroke-linejoin: round;
-}
-@keyframes cue-bounce {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(4px); }
-}
-
 /* ==========================================================================
    SECTION SCAFFOLDING
    ========================================================================== */
