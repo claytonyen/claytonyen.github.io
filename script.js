@@ -26,12 +26,10 @@ const ABOUT = {
     " and most importantly improving. When I'm not in the lab, you can find " +
      "me playing guitar, rock climbing, or documenting my outdoor adventures " +
      "through photography.",
-  facts: [
-    { label: "Based in", value: "San Diego, CA" },
-    { label: "Focus", value: "Analog electronics & IC design" },
-    { label: "Education", value: "B.S. Electrical Engineering<br>University of Illinois Urbana-Champaign 2028" },
-    { label: "Currently", value: "Student" },
-  ],
+  photo: {
+    src: "media/hero_photo.jpg",
+    alt: "Clayton Yen's workbench with test equipment and guitar",
+  },
 };
 
 // Most recent first.
@@ -146,18 +144,14 @@ function renderHero() {
   document.getElementById("hero-tagline").textContent = PROFILE.tagline;
   document.getElementById("nav-mark").textContent = PROFILE.initials;
   document.getElementById("nav-resume").href = PROFILE.resumeUrl;
-  document.title = `${PROFILE.name} — Portfolio`;
+  document.title = `${PROFILE.name} - Portfolio`;
 }
 
 function renderAbout() {
   document.getElementById("about-bio").textContent = ABOUT.bio;
-  const factsList = document.getElementById("about-facts");
-  ABOUT.facts.forEach((fact) => {
-    const row = el("div", "row");
-    row.appendChild(el("dt", null, fact.label));
-    row.appendChild(el("dd", null, fact.value));
-    factsList.appendChild(row);
-  });
+  const photoImg = document.getElementById("about-photo-img");
+  photoImg.src = ABOUT.photo.src;
+  photoImg.alt = ABOUT.photo.alt;
 }
 
 function renderExperience() {
