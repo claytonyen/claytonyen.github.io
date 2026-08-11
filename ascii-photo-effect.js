@@ -121,17 +121,35 @@
         `brightness(${brightness}%) contrast(${contrast}%) ` +
         `saturate(${saturate}%) grayscale(${grayscale}%)`;
 
-      // cover-fit the image into w x h
+      // cover-fit the image into w x h, with a horizontal anchor so a
+      // subject can be pushed toward one side instead of always centered
+      // (used to keep the rendered figure clear of a text column that
+      // sits on the other side).
       const ir = this.image.naturalWidth / this.image.naturalHeight;
       const cr = w / h;
       let dw, dh, dx, dy;
+      const align = p.sourceAlign || "center";
       if (ir > cr) {
-        dh = h; dw = h * ir; dx = (w - dw) / 2; dy = 0;
+        dh = h; dw = h * ir; dy = 0;
+        dx = align === "right" ? w - dw : align === "left" ? 0 : (w - dw) / 2;
       } else {
-        dw = w; dh = w / ir; dx = 0; dy = (h - dh) / 2;
+        dw = w; dh = w / ir; dx = 0;
+        dy = (h - dh) / 2;
       }
       octx.drawImage(this.image, dx, dy, dw, dh);
       octx.filter = "none";
+
+      // Flatten transparency onto an opaque backdrop BEFORE any luminance
+      // sampling happens. A transparent PNG (cutout photos, logos) stores
+      // arbitrary — often black — RGB under alpha:0 pixels; read raw, that
+      // reads as "near-black everywhere" and silently wrecks every
+      // downstream luminance calc. destination-over fills only the
+      // transparent areas, leaving real pixel colors untouched.
+      octx.save();
+      octx.globalCompositeOperation = "destination-over";
+      octx.fillStyle = p.transparentFill || "#ffffff";
+      octx.fillRect(0, 0, w, h);
+      octx.restore();
 
       // tint, composited with overlayBlend at tintOpacity
       if (p.tint && p.tintOpacity > 0) {
@@ -239,7 +257,11 @@
           if (invert) l = 1 - l;
           const idx = gy * cols + gx;
           lum[idx] = l;
-          colRGB[idx] = [r, g, b];
+          // flatColor: skip carrying the sampled RGB at all — every glyph
+          // uses one brand color at varying alpha (luminance-driven), the
+          // monochrome "ASCII portrait" look, instead of a full-color
+          // per-pixel render.
+          colRGB[idx] = p.flatColor ? p.flatColor : [r, g, b];
         }
       }
 
@@ -257,7 +279,7 @@
           if (density > 0 && hash2(gx + 999, gy + 999) < density * 0.5) continue;
 
           let l = lum[idx];
-          const [r, g, b] = colRGB[idx];
+          const cellColor = colRGB[idx];
 
           // simple edge boost: compare to right/bottom neighbor
           const rightL = gx + 1 < cols ? lum[idx + 1] : l;
@@ -266,7 +288,9 @@
           const edgeBoost = 1 + edge * edgeEmphasis * 2;
 
           const cx = gx * cellSize, cy = gy * cellSize;
-          const color = `rgb(${r | 0}, ${g | 0}, ${b | 0})`;
+          const color = typeof cellColor === "string"
+            ? cellColor
+            : `rgb(${cellColor[0] | 0}, ${cellColor[1] | 0}, ${cellColor[2] | 0})`;
 
           this._drawCellGlyph(ctx, renderMode, glyphSet, {
             x: cx, y: cy, size: cellSize, l, color, edgeBoost, gx, gy,

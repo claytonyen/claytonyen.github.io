@@ -152,10 +152,29 @@ code { font-family: var(--f-mono); background: var(--paper-dim); padding: 0.1em 
   overflow: hidden;
   padding: 0 var(--edge);
 }
+
+/* Pencil-style ASCII portrait, confined to the right side of the hero so
+   it never has to fight the text column for contrast. Only shown above
+   1280px — see the breakpoint below and the matching MIN_WIDTH constant
+   in site-ascii.js. Below that width the box math no longer guarantees
+   clearance from .hero-inner, and a portrait this size isn't legible on
+   a laptop-or-smaller screen anyway. */
+.hero-ascii {
+  position: absolute;
+  right: 0; top: 0;
+  width: 42%; height: 100%;
+  z-index: 0;
+  display: none;
+}
+@media (min-width: 1280px) {
+  .hero-ascii { display: block; }
+}
+
 .hero-inner { position: relative; max-width: 640px; margin: 0; z-index: 2; }
 .hero-name {
+  font-family: var(--f-display);
   font-size: clamp(2.6rem, 6vw, 4.4rem);
-  font-weight: 700; line-height: 1.02;
+  font-weight: 800; line-height: 1.02;
   margin-bottom: 14px;
 }
 .hero-tagline {
@@ -173,29 +192,6 @@ code { font-family: var(--f-mono); background: var(--paper-dim); padding: 0.1em 
 .btn-primary { background: var(--ink); color: var(--paper); }
 .btn-primary:hover { transform: translateY(-2px); background: var(--accent); border-color: var(--accent); }
 .btn-ghost:hover { transform: translateY(-2px); background: rgba(20,26,31,0.06); }
-
-.hero-ascii {
-  position: absolute; inset: 0;
-  width: 100%; height: 100%;
-  z-index: 0;
-}
-
-/* Keeps the headline column readable over a dark, busy background —
-   fades from solid paper down to fully transparent so the right side
-   of the hero shows the full effect. */
-.hero::before {
-  content: "";
-  position: absolute; inset: 0;
-  z-index: 1;
-  background: linear-gradient(
-    90deg,
-    var(--paper) 0%,
-    var(--paper) 28%,
-    rgba(238, 241, 238, 0.55) 46%,
-    transparent 62%
-  );
-  pointer-events: none;
-}
 
 /* ==========================================================================
    SECTION SCAFFOLDING
@@ -219,10 +215,10 @@ code { font-family: var(--f-mono); background: var(--paper-dim); padding: 0.1em 
    ABOUT
    ========================================================================== */
 .about-grid {
-  display: grid; grid-template-columns: 1.3fr 1fr; gap: 56px; align-items: start;
+  display: flex; flex-wrap: wrap; gap: 36px; align-items: flex-start;
 }
-.about-bio { font-size: 1.08rem; color: var(--ink-soft); max-width: 56ch; }
 .about-photo {
+  width: 220px; flex: 0 0 220px;
   aspect-ratio: 3 / 4;
   border-radius: var(--radius);
   border: 1px solid rgba(20,26,31,0.15);
@@ -230,7 +226,10 @@ code { font-family: var(--f-mono); background: var(--paper-dim); padding: 0.1em 
   overflow: hidden;
 }
 .about-photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
-@media (max-width: 760px) { .about-grid { grid-template-columns: 1fr; } }
+.about-bio { font-size: 1.08rem; color: var(--ink-soft); max-width: 42ch; }
+@media (max-width: 760px) {
+  .about-photo { width: 160px; flex-basis: 160px; }
+}
 
 /* ==========================================================================
    EXPERIENCE — TIMELINE
@@ -247,10 +246,17 @@ code { font-family: var(--f-mono); background: var(--paper-dim); padding: 0.1em 
 .ti-role { font-family: var(--f-display); font-size: 1.15rem; font-weight: 600; }
 .ti-company { color: var(--accent); font-weight: 500; }
 .ti-dates { font-family: var(--f-mono); font-size: 12.5px; color: var(--ink-soft); margin-left: auto; white-space: nowrap; }
-.ti-location { font-family: var(--f-mono); font-size: 12.5px; color: var(--ink-soft); margin-bottom: 10px; }
-.ti-bullets { color: var(--ink-soft); font-size: 0.98rem; display: grid; gap: 6px; margin-bottom: 12px; }
-.ti-bullets li { position: relative; padding-left: 16px; }
-.ti-bullets li::before { content: "—"; position: absolute; left: 0; color: var(--accent-soft); }
+.ti-location { font-family: var(--f-mono); font-size: 12.5px; color: var(--ink-soft); margin-bottom: 14px; }
+
+.ti-body { display: flex; flex-direction: column; gap: 16px; }
+.ti-blurb { color: var(--ink-soft); font-size: 0.98rem; max-width: 64ch; }
+.ti-media { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 14px; }
+.ti-media-item {
+  margin: 0; aspect-ratio: 16 / 10; border-radius: var(--radius);
+  overflow: hidden; background: var(--paper-dim);
+  border: 1px solid rgba(20,26,31,0.12);
+}
+.ti-media-item img { width: 100%; height: 100%; object-fit: cover; display: block; }
 
 /* ==========================================================================
    PROJECTS
@@ -298,14 +304,17 @@ code { font-family: var(--f-mono); background: var(--paper-dim); padding: 0.1em 
    FOOTER — TITLE BLOCK
    ========================================================================== */
 .titleblock { position: relative; overflow: hidden; background: var(--navy); color: #DCE3EA; padding: 0 var(--edge) 28px; }
-.titleblock-inner { position: relative; z-index: 1; max-width: var(--max); margin: 0 auto; padding-top: 64px; }
-.footer-ascii {
-  position: absolute; inset: 0;
-  width: 100%; height: 100%;
-  z-index: 0;
-  opacity: 0.16;
+.footer-grid {
+  position: absolute; inset: 0; z-index: 0;
+  background-image:
+    linear-gradient(var(--navy-line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--navy-line) 1px, transparent 1px);
+  background-size: 48px 48px;
+  opacity: 0.5;
+  mask-image: radial-gradient(ellipse 90% 70% at 70% 15%, black 40%, transparent 85%);
   pointer-events: none;
 }
+.titleblock-inner { position: relative; z-index: 1; max-width: var(--max); margin: 0 auto; padding-top: 64px; }
 .tb-row { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; padding: 10px 0; border-top: 1px solid var(--navy-line); font-size: 12px; }
 .tb-head span { color: #7C8AA0; text-transform: uppercase; letter-spacing: 0.06em; font-size: 10.5px; }
 .tb-values { border-bottom: 1px solid var(--navy-line); font-family: var(--f-mono); }

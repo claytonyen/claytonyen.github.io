@@ -40,24 +40,33 @@ const EXPERIENCE = [
     location: "Urbana, IL",
     start: "Dec. 2025",
     end: "May 2026",
-    bullets: [
-      "Improved three-phase current-sensing circuit for a BLDC motor controller, using bidirectional current-sense amplifiers and precision shunt resistors for closed-loop motor control.",
-      "Optimized PCB component placement and routing in Altium, reducing board size ~10% to meet enclosure and cost constraints while preserving controlled-impedance signal integrity.",
-      "Sourced and qualified pin-compatible replacement parts from alternate vendors when original components went obsolete, avoiding board respins and keeping the project on schedule.",
-    ],
-
-  } // make sure to add a comma here once you add another experience
- // {
-//    role: "Software Engineering Intern",
- //   company: "Earlier Company",
-//    location: "New York, NY",
-//    start: "2020",
-//    end: "2020",
-//    bullets: [
-//      "Shipped a self-serve onboarding flow that reduced support tickets by 15%.",
-//    ],
-//    tags: ["React", "Python"],
-//  },
+    blurb:
+      "Zephyr Boards builds motor controllers for small electric vehicles. " +
+      "I worked on the three-phase current-sensing circuit for their BLDC " +
+      "motor controller, using bidirectional current-sense amplifiers and precision " +
+      "shunt resistors for closed-loop control, and optimized component " +
+      "placement and routing in Altium, cutting board size roughly 10% while " +
+      "holding controlled-impedance signal integrity. When parts went obsolete " +
+      "mid-project, I sourced and qualified pin-compatible replacements to " +
+      "avoid a board respin.",
+    // Add these once you have them — same pattern as PROJECTS images below.
+    pcbImage: "", // e.g. "media/zephyr-pcb-altium.png"
+    pcbImageAlt: "PCB layout in Altium Designer",
+    productImage: "", // e.g. "media/zephyr-product.jpg"
+    productImageAlt: "Finished motor controller board",
+  }, // make sure to add a comma here once you add another experience
+  // {
+  //   role: "Software Engineering Intern",
+  //   company: "Earlier Company",
+  //   location: "New York, NY",
+  //   start: "2020",
+  //   end: "2020",
+  //   blurb: "What the company does, and what you actually worked on there.",
+  //   pcbImage: "",
+  //   pcbImageAlt: "",
+  //   productImage: "",
+  //   productImageAlt: "",
+  // },
   // Copy any block above, paste it here, and edit the fields to add another role.
 ];
 
@@ -167,12 +176,29 @@ function renderExperience() {
 
     if (job.location) item.appendChild(el("div", "ti-location", job.location));
 
-    if (job.bullets && job.bullets.length) {
-      const bullets = el("ul", "ti-bullets");
-      job.bullets.forEach((b) => bullets.appendChild(el("li", null, b)));
-      item.appendChild(bullets);
-    }
+    const body = el("div", "ti-body");
+    if (job.blurb) body.appendChild(el("p", "ti-blurb", job.blurb));
 
+    const media = el("div", "ti-media");
+    if (job.pcbImage) {
+      const fig = el("figure", "ti-media-item");
+      const img = el("img");
+      img.src = job.pcbImage;
+      img.alt = job.pcbImageAlt || `${job.role} at ${job.company} - PCB layout`;
+      fig.appendChild(img);
+      media.appendChild(fig);
+    }
+    if (job.productImage) {
+      const fig = el("figure", "ti-media-item");
+      const img = el("img");
+      img.src = job.productImage;
+      img.alt = job.productImageAlt || `${job.role} at ${job.company} - finished product`;
+      fig.appendChild(img);
+      media.appendChild(fig);
+    }
+    if (media.children.length) body.appendChild(media);
+
+    item.appendChild(body);
     timeline.appendChild(item);
   });
 }

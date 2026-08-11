@@ -12,7 +12,7 @@
 =================================================================== -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700;800&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 
 <link rel="stylesheet" href="style.css">
 </head>
@@ -26,8 +26,8 @@
     <nav aria-label="Primary">
       <ul class="nav-links" id="nav-links">
         <li><a href="#about">About</a></li>
-        <li><a href="#experience">Experience</a></li>
         <li><a href="#projects">Projects</a></li>
+        <li><a href="#experience">Experience</a></li>
         <li><a href="#skills">Skills</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
@@ -67,6 +67,9 @@
         <span class="fig-title">About</span>
       </div>
       <div class="about-grid">
+        <div class="about-photo">
+          <img id="about-photo-img" src="" alt="" />
+        </div>
         <p class="about-bio" id="about-bio">
           I'm an electrical engineer who likes understanding a system from the 
           ground up. As a result, I gravitate towards projects where I can be 
@@ -74,9 +77,19 @@
           and most importantly improving. My hobbies include guitar, rock climbing, 
           and documenting all of my outdoor adventures through photography.
         </p>
-        <div class="about-photo">
-          <img id="about-photo-img" src="" alt="" />
-        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================== PROJECTS =========================== -->
+  <section class="section" id="projects">
+    <div class="section-inner">
+      <div class="section-label">
+        <span class="fig mono"></span>
+        <span class="fig-title">Projects</span>
+      </div>
+      <div class="project-grid" id="project-grid">
+        <!-- filled by script.js from PROJECTS -->
       </div>
     </div>
   </section>
@@ -91,19 +104,6 @@
       <ol class="timeline" id="timeline">
         <!-- filled by script.js from EXPERIENCE -->
       </ol>
-    </div>
-  </section>
-
-  <!-- ========================== PROJECTS =========================== -->
-  <section class="section" id="projects">
-    <div class="section-inner">
-      <div class="section-label">
-        <span class="fig mono"></span>
-        <span class="fig-title">Projects</span>
-      </div>
-      <div class="project-grid" id="project-grid">
-        <!-- filled by script.js from PROJECTS -->
-      </div>
     </div>
   </section>
 
@@ -124,7 +124,7 @@
 
 <!-- =========================== CONTACT / TITLE BLOCK =========================== -->
 <footer class="titleblock" id="contact">
-  <canvas id="footer-ascii" class="footer-ascii" aria-hidden="true"></canvas>
+  <div class="footer-grid" aria-hidden="true"></div>
   <div class="titleblock-inner">
     <div class="tb-main">
       <h2>Contacts</h2>
