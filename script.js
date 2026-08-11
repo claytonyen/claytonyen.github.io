@@ -7,21 +7,15 @@
 const PROFILE = {
   name: "Clayton Yen",
   initials: "CY",
-  role: "Electrical engineer focused on analog circuit design",
   tagline:
-    "Aspiring analog IC designer working across signal processing, " +
-    "audio electronics, and motor control, from simulation to breadboard to" +
-    " PCB.",
-  resumeUrl: "resume.pdf", // put a resume.pdf next to index.html, or link elsewhere
+    "Aspiring IC designer working across signal processing, audio electronics," +
+    " and motor control, from simulation to breadboard to PCB.",
+  resumeUrl: "resume.pdf",
   email: "claytonyen@gmail.com",
   github: "https://github.com/claytonyen",
   linkedin: "https://linkedin.com/in/claytonyen",
-  // add more links here if you want, e.g. twitter, personal blog, etc.
-  extraLinks: [
-    // { label: "Blog", url: "https://example.com" },
-  ],
-  contactBlurb:
-    "Reach out any of these ways.",
+  extraLinks: [],
+  contactBlurb: "Reach out any of these ways.",
 };
 
 const ABOUT = {
@@ -149,7 +143,6 @@ function el(tag, className, html) {
 
 function renderHero() {
   document.getElementById("hero-name").textContent = PROFILE.name;
-  document.getElementById("hero-role").textContent = PROFILE.role;
   document.getElementById("hero-tagline").textContent = PROFILE.tagline;
   document.getElementById("nav-mark").textContent = PROFILE.initials;
   document.getElementById("nav-resume").href = PROFILE.resumeUrl;
