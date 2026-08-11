@@ -152,15 +152,6 @@ code { font-family: var(--f-mono); background: var(--paper-dim); padding: 0.1em 
   overflow: hidden;
   padding: 0 var(--edge);
 }
-.hero-grid {
-  position: absolute; inset: 0;
-  background-image:
-    linear-gradient(var(--accent-soft) 1px, transparent 1px),
-    linear-gradient(90deg, var(--accent-soft) 1px, transparent 1px);
-  background-size: 48px 48px;
-  opacity: 0.12;
-  mask-image: radial-gradient(ellipse 80% 60% at 30% 40%, black 40%, transparent 85%);
-}
 .hero-inner { position: relative; max-width: 640px; margin: 0; z-index: 2; }
 .hero-name {
   font-size: clamp(2.6rem, 6vw, 4.4rem);
@@ -183,20 +174,28 @@ code { font-family: var(--f-mono); background: var(--paper-dim); padding: 0.1em 
 .btn-primary:hover { transform: translateY(-2px); background: var(--accent); border-color: var(--accent); }
 .btn-ghost:hover { transform: translateY(-2px); background: rgba(20,26,31,0.06); }
 
-.hero-photo {
-  position: absolute; right: 17.5%; top: 50%; transform: translateY(-50%);
-  z-index: 1;
-  width: 400px; height: 533px;
-  border-radius: var(--radius);
-  border: 1px solid rgba(20,26,31,0.15);
-  background: var(--paper-dim);
-  overflow: hidden;
+.hero-ascii {
+  position: absolute; inset: 0;
+  width: 100%; height: 100%;
+  z-index: 0;
 }
 
-.hero-photo img {
-  width: 100%; height: 100%; object-fit: cover; display: block;
+/* Keeps the headline column readable over a dark, busy background —
+   fades from solid paper down to fully transparent so the right side
+   of the hero shows the full effect. */
+.hero::before {
+  content: "";
+  position: absolute; inset: 0;
+  z-index: 1;
+  background: linear-gradient(
+    90deg,
+    var(--paper) 0%,
+    var(--paper) 28%,
+    rgba(238, 241, 238, 0.55) 46%,
+    transparent 62%
+  );
+  pointer-events: none;
 }
-@media (max-width: 900px) { .hero-photo { display: none; } }
 
 /* ==========================================================================
    SECTION SCAFFOLDING
@@ -223,18 +222,14 @@ code { font-family: var(--f-mono); background: var(--paper-dim); padding: 0.1em 
   display: grid; grid-template-columns: 1.3fr 1fr; gap: 56px; align-items: start;
 }
 .about-bio { font-size: 1.08rem; color: var(--ink-soft); max-width: 56ch; }
-.spec-sheet {
-  border: 1px solid rgba(20,26,31,0.15); border-radius: var(--radius);
+.about-photo {
+  aspect-ratio: 3 / 4;
+  border-radius: var(--radius);
+  border: 1px solid rgba(20,26,31,0.15);
   background: var(--paper-dim);
+  overflow: hidden;
 }
-.spec-sheet .row {
-  display: grid; grid-template-columns: 110px 1fr;
-  padding: 12px 16px; border-bottom: 1px solid rgba(20,26,31,0.1);
-  font-size: 14px;
-}
-.spec-sheet .row:last-child { border-bottom: none; }
-.spec-sheet dt { font-family: var(--f-mono); color: var(--accent); text-transform: uppercase; font-size: 11px; letter-spacing: 0.05em; align-self: center; }
-.spec-sheet dd { margin: 0; color: var(--ink); }
+.about-photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
 @media (max-width: 760px) { .about-grid { grid-template-columns: 1fr; } }
 
 /* ==========================================================================
@@ -302,8 +297,15 @@ code { font-family: var(--f-mono); background: var(--paper-dim); padding: 0.1em 
 /* ==========================================================================
    FOOTER — TITLE BLOCK
    ========================================================================== */
-.titleblock { background: var(--navy); color: #DCE3EA; padding: 0 var(--edge) 28px; }
-.titleblock-inner { max-width: var(--max); margin: 0 auto; padding-top: 64px; }
+.titleblock { position: relative; overflow: hidden; background: var(--navy); color: #DCE3EA; padding: 0 var(--edge) 28px; }
+.titleblock-inner { position: relative; z-index: 1; max-width: var(--max); margin: 0 auto; padding-top: 64px; }
+.footer-ascii {
+  position: absolute; inset: 0;
+  width: 100%; height: 100%;
+  z-index: 0;
+  opacity: 0.16;
+  pointer-events: none;
+}
 .tb-row { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; padding: 10px 0; border-top: 1px solid var(--navy-line); font-size: 12px; }
 .tb-head span { color: #7C8AA0; text-transform: uppercase; letter-spacing: 0.06em; font-size: 10.5px; }
 .tb-values { border-bottom: 1px solid var(--navy-line); font-family: var(--f-mono); }
