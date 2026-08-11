@@ -408,4 +408,3 @@ code { font-family: var(--f-mono); background: var(--paper-dim); padding: 0.1em 
   border: 1px solid rgba(20,26,31,0.1);
 }
 .pm-desc { color: var(--ink-soft); margin-bottom: 20px; white-space: pre-line; }
-.pm-panel .tag-row { margin-bottom: 20px; }
