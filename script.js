@@ -35,7 +35,7 @@ const ABOUT = {
   facts: [
     { label: "Based in", value: "San Diego, CA" },
     { label: "Focus", value: "Analog electronics & IC design" },
-    { label: "Education", value: "B.S. Electrical Engineering\nUniversity of Illinois Urbana-Champaign 2028" },
+    { label: "Education", value: "B.S. Electrical Engineering<br>University of Illinois Urbana-Champaign 2028" },
     { label: "Currently", value: "Student" },
   ],
 };
