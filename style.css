@@ -208,15 +208,23 @@ code { font-family: var(--f-mono); background: var(--paper-dim); padding: 0.1em 
 
 .scroll-cue {
   position: absolute; bottom: 32px; left: 50%; transform: translateX(-50%);
-  width: 22px; height: 36px; border: 1px solid var(--ink-soft); border-radius: 12px;
   opacity: 0.5;
 }
-.scroll-cue span {
-  position: absolute; top: 6px; left: 50%; transform: translateX(-50%);
-  width: 4px; height: 4px; border-radius: 50%; background: var(--ink-soft);
-  animation: cue 1.6s ease-in-out infinite;
+.scroll-cue svg {
+  display: block;
+  animation: cue-bounce 1.6s ease-in-out infinite;
 }
-@keyframes cue { 0% { top: 6px; opacity: 1; } 70% { top: 20px; opacity: 0; } 100% { top: 20px; opacity: 0; } }
+.scroll-cue polyline {
+  fill: none;
+  stroke: var(--ink-soft);
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+@keyframes cue-bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(6px); }
+}
 
 /* ==========================================================================
    SECTION SCAFFOLDING
