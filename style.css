@@ -192,7 +192,7 @@ code { font-family: var(--f-mono); background: var(--paper-dim); padding: 0.1em 
 .btn-ghost:hover { transform: translateY(-2px); background: rgba(20,26,31,0.06); }
 
 .hero-photo {
-  position: absolute; right: 6%; top: 50%; transform: translateY(-50%);
+  position: absolute; right: 25%; top: 50%; transform: translateY(-50%);
   z-index: 1;
   width: 400px; height: 533px;
   border-radius: var(--radius);
