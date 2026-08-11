@@ -212,7 +212,7 @@ code { font-family: var(--f-mono); background: var(--paper-dim); padding: 0.1em 
 }
 .scroll-cue svg {
   display: block;
-  animation: cue-bounce 1.6s ease-in-out infinite;
+  animation: cue-bounce 2s ease-in-out infinite;
 }
 .scroll-cue polyline {
   fill: none;
@@ -223,7 +223,7 @@ code { font-family: var(--f-mono); background: var(--paper-dim); padding: 0.1em 
 }
 @keyframes cue-bounce {
   0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(6px); }
+  50% { transform: translateY(4px); }
 }
 
 /* ==========================================================================
