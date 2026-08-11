@@ -175,7 +175,7 @@ function renderExperience() {
     const head = el("div", "ti-head");
     head.appendChild(el("span", "ti-role", job.role));
     head.appendChild(el("span", "ti-company", `· ${job.company}`));
-    head.appendChild(el("span", "ti-dates", `${job.start} — ${job.end}`));
+    head.appendChild(el("span", "ti-dates", `${job.start} - ${job.end}`));
     item.appendChild(head);
 
     if (job.location) item.appendChild(el("div", "ti-location", job.location));
@@ -251,7 +251,7 @@ function openProjectModal(proj) {
   if (proj.measurementImage) {
     const measImg = el("img", "pm-image pm-measurement");
     measImg.src = proj.measurementImage;
-    measImg.alt = `${proj.title} — measurement`;
+    measImg.alt = `${proj.title} - measurement`;
     content.appendChild(measImg);
   }
 
@@ -328,7 +328,7 @@ function renderContact() {
 
   const linksList = document.getElementById("contact-links");
   const baseLinks = [
-    { label: `Email — ${PROFILE.email}`, url: `mailto:${PROFILE.email}` },
+    { label: `Email - ${PROFILE.email}`, url: `mailto:${PROFILE.email}` },
     { label: "GitHub ↗", url: PROFILE.github },
     { label: "LinkedIn ↗", url: PROFILE.linkedin },
     ...(PROFILE.extraLinks || []),
