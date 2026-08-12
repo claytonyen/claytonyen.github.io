@@ -20,12 +20,12 @@ const PROFILE = {
 
 const ABOUT = {
   bio:
-    "I'm an electrical engineer who likes understanding a system from the " +
-    "ground up. As a result, I gravitate towards projects where I can be" +
-    " apart of the entire design process: designing, simulating, measuring," +
-    " and most importantly improving. When I'm not in the lab, you can find " +
-     "me playing guitar, rock climbing, or documenting my outdoor adventures " +
-     "through photography.",
+    "Hello! I am Clayton Yen, currently a third year electrical engineering student " +
+    "at the University of Illinois, Urbana-Champaign. I'm an engineer who likes " +
+    "understanding a system from the ground up. As a result, I gravitate towards " +
+    "projects where I can be a part of the entire design process: designing, simulating, measuring, " +
+    "and most importantly improving. When I'm not in the lab, you can find me playing " +
+    "guitar, rock climbing, or documenting my outdoor adventures through photography.",
   photo: {
     src: "media/hero_photo.jpg",
     alt: "Clayton Yen's workbench with test equipment and guitar",
