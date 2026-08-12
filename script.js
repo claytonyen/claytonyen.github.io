@@ -408,23 +408,60 @@ function renderContact() {
 }
 
 function setupScrollReveal() {
-  const revealables = document.querySelectorAll(".reveal");
-  if (!("IntersectionObserver" in window)) {
-    revealables.forEach((n) => n.classList.add("is-visible"));
+  // Ensure GSAP is loaded
+  if (typeof gsap === "undefined" || typeof ScrollTrigger === "undefined") {
+    document.querySelectorAll(".reveal").forEach((el) => el.classList.add("is-visible"));
     return;
   }
-  const observer = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("is-visible");
-          observer.unobserve(entry.target);
-        }
-      });
-    },
-    { threshold: 0.12, rootMargin: "0px 0px -40px 0px" }
-  );
-  revealables.forEach((n) => observer.observe(n));
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  // Stagger reveal for major sections
+  const sections = document.querySelectorAll(".section");
+  sections.forEach((section) => {
+    const revealTargets = section.querySelectorAll(".reveal");
+    
+    gsap.fromTo(
+      revealTargets,
+      { 
+        y: 35, 
+        opacity: 0, 
+        scale: 0.97 
+      },
+      {
+        y: 0,
+        opacity: 1,
+        scale: 1,
+        duration: 0.8,
+        ease: "power3.out",
+        stagger: 0.12,
+        scrollTrigger: {
+          trigger: section,
+          start: "top 80%",
+          toggleActions: "play none none reverse",
+        },
+      }
+    );
+  });
+
+  // Scale and scrub effect on Bento Cards during scroll
+  const bentoCards = document.querySelectorAll(".project-card");
+  bentoCards.forEach((card) => {
+    gsap.fromTo(
+      card,
+      { scale: 0.95, opacity: 0.8 },
+      {
+        scale: 1.0,
+        opacity: 1.0,
+        scrollTrigger: {
+          trigger: card,
+          start: "top 90%",
+          end: "top 60%",
+          scrub: 1,
+        },
+      }
+    );
+  });
 }
 
 function init() {
