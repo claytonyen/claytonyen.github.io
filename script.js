@@ -95,8 +95,11 @@ const PROJECTS = [
     image: "media/Circuit_Screenshot.png", // e.g. "projects/reverb-pedal.jpg" — photo of the built pedal
     measurementImage: "media/Frequency_Response_Screenshot.png", // e.g. "projects/reverb-freq-response.png"
     longDescription:
-      "Add a fuller writeup here — design goals, topology choices, what to " +
-      "improve next time, measured results, etc. This shows in the expanded view only.",
+      "Equalizers help to shape the audio signal using filters. You can make your tone brighter by lifting the treble, " +
+      "thicker by raising the mids, or darker by increasing the bass. My three channel equalizer design does just that, ", +
+      "achieved using a gyrator peak filter for each channel into an op-amp mixer which is configured as a swinging input, " +
+      "unity gain noninverting amplifier. The circuit also has Sallen-Key low pass filter and high pass filters to get rid of " +
+      "unwanted low frequency hum and high frequency buzz."
    }, 
   {
     title: "Resistor Color Code Reader GUI",
@@ -133,7 +136,7 @@ const PROJECTS = [
       "an asymmetrical diode clipping stage to generate a mix of both even-order and " +
       "odd-order harmonics, which mimics real tube amplifier behavior. I had two iterations " +
       "of the diode clipping stage. A 2-1 1N4148 parallel diode configuration and a 1N270 and " +
-      "1N5819 configuration.",
+      "1N4148 configuration."
       // Add a fuller writeup here — design goals, topology choices, what to
       //improve next time, measured results, etc. This shows in the expanded view only
   },
