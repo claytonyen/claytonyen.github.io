@@ -221,13 +221,16 @@ function renderExperience() {
 
 function renderProjects() {
   const grid = document.getElementById("project-grid");
-  PROJECTS.forEach((proj, i) => {
+  PROJECTS.forEach((proj) => {
     const card = el("article", "project-card reveal");
     card.tabIndex = 0;
     card.setAttribute("role", "button");
     card.setAttribute("aria-haspopup", "dialog");
 
-    if (proj.featured) card.appendChild(el("span", "pc-featured", "FEATURED"));
+    // Apply Bento spans based on project features
+    if (proj.featured || proj.title.includes("Equalizer")) {
+      card.classList.add("card-featured");
+    }
 
     if (proj.image) {
       const thumb = el("div", "pc-thumb");
@@ -241,13 +244,25 @@ function renderProjects() {
 
     card.appendChild(el("h3", "pc-title", proj.title));
     card.appendChild(el("p", "pc-desc", proj.description));
-    card.appendChild(el("span", "pc-expand mono", "View details →"));
+
+    // Expose audio directly on featured bento cards
+    if (proj.audio && card.classList.contains("card-featured")) {
+      const audioWrap = el("div", "bento-audio-preview");
+      audioWrap.appendChild(el("p", "pm-audio-label mono", "Quick Listen"));
+      const audio = document.createElement("audio");
+      audio.controls = true;
+      audio.src = proj.audio;
+      audioWrap.appendChild(audio);
+      card.appendChild(audioWrap);
+    }
+
+    card.appendChild(el("span", "pc-expand mono", "View details ->"));
 
     const openHandler = (e) => {
-      // don't trigger modal if a repo/live link inside the card was clicked
-      if (e.target.closest("a")) return;
+      if (e.target.closest("a") || e.target.closest("audio")) return;
       openProjectModal(proj);
     };
+    
     card.addEventListener("click", openHandler);
     card.addEventListener("keydown", (e) => {
       if (e.key === "Enter" || e.key === " ") {
@@ -315,6 +330,14 @@ function openProjectModal(proj) {
 
 function closeProjectModal() {
   const overlay = document.getElementById("project-modal");
+  
+  // Audio Tear-Down: Stop playing audio when modal closes
+  const modalAudioElements = overlay.querySelectorAll("audio");
+  modalAudioElements.forEach((audio) => {
+    audio.pause();
+    audio.currentTime = 0;
+  });
+
   overlay.classList.remove("is-open");
   document.body.style.overflow = "";
 }
