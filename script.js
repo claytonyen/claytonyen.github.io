@@ -101,7 +101,8 @@ const PROJECTS = [
       "thicker by raising the mids, or darker by increasing the bass. My three channel equalizer design does just that, " +
       "achieved using a gyrator peak filter for each channel into an op-amp mixer which is configured as a swinging input, " +
       "unity gain noninverting amplifier. The circuit also has Sallen-Key low pass filter and high pass filters to get rid of " +
-      "unwanted low frequency hum and high frequency buzz."
+      "unwanted low frequency hum and high frequency buzz. The audio demo is an extreme case of boosting the treble and reducing " +
+      "the bass."
    }, 
   {
     title: "Resistor Color Code Reader GUI",
@@ -139,7 +140,7 @@ const PROJECTS = [
       "an asymmetrical diode clipping stage to generate a mix of both even-order and " +
       "odd-order harmonics, which mimics real tube amplifier behavior. I had two iterations " +
       "of the diode clipping stage. A 2-1 1N4148 parallel diode configuration and a 1N270 and " +
-      "1N4148 configuration."
+      "1N4148 configuration. The audio demo is of the 1N270 1N4148 configuration."
       // Add a fuller writeup here — design goals, topology choices, what to
       //improve next time, measured results, etc. This shows in the expanded view only
   },
