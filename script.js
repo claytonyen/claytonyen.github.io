@@ -41,14 +41,13 @@ const EXPERIENCE = [
     start: "Dec. 2025",
     end: "May 2026",
     blurb:
-      "Zephyr Boards builds motor controllers for small electric vehicles. " +
-      "I worked on the three-phase current-sensing circuit for their BLDC " +
-      "motor controller, using bidirectional current-sense amplifiers and precision " +
-      "shunt resistors for closed-loop control, and optimized component " +
-      "placement and routing in Altium, cutting board size roughly 10% while " +
-      "holding controlled-impedance signal integrity. When parts went obsolete " +
-      "mid-project, I sourced and qualified pin-compatible replacements to " +
-      "avoid a board respin.",
+      "Zephyr Boards was a startup that specialized in the creation of " +
+      "foldable electric longboards with an emphasis on portability and battery life. " + 
+      "I worked on the three-phase current-sensing circuit for their " +
+      "BLDC motor controller, using bidirectional current-sense amplifiers and precision " +
+      "shunt resistors for closed-loop control. I optimized component " +
+      "placement and routing in Altium, cutting board size roughly 10%." +
+      "When parts went obsolete I sourced and qualified pin-compatible replacements.",
     // Add these once you have them — same pattern as PROJECTS images below.
     pcbImage: "", // e.g. "media/zephyr-pcb-altium.png"
     pcbImageAlt: "PCB layout in Altium Designer",
@@ -82,8 +81,8 @@ const PROJECTS = [
     image: "", // e.g. "projects/reverb-pedal.jpg" — photo of the built pedal
     measurementImage: "", // e.g. "projects/reverb-freq-response.png"
     longDescription:
-      "Add a fuller writeup here — design goals, topology choices, what to " +
-      "improve next time, measured results, etc. This shows in the expanded view only.",
+      "Work in " +
+      "Progress",
   },
   {
     title: "3-Channel Equalizer Electric Guitar Pedal",
@@ -102,7 +101,7 @@ const PROJECTS = [
   {
     title: "Resistor Color Code Reader GUI",
     description:
-      "User chooses band colors to get resistor value or inputs resistor value for band color. Streamlines breadboard prototyping.",
+      "User chooses band colors to get resistor value or inputs resistor value for band color.",
     tags: ["Python", "TKinter"],
     liveUrl: "", // add this
     repoUrl: "https://github.com/claytonyen/resistor-code-reader",
@@ -111,8 +110,11 @@ const PROJECTS = [
     imageFit: "contain",
     measurementImage: "",
     longDescription:
-      "Add a fuller writeup here — design goals, topology choices, what to " +
-      "improve next time, measured results, etc. This shows in the expanded view only.",
+      "I wanted to streamline breadboard prototyping for my projects, so I made a GUI using Python " +
+      "and its TKinter package. It supports common 4, 5, and 6 band resistors with full bidirectional conversion: " +
+      "pick band colors to see the value or type a resistance value to see the band colors. ", +
+      "The value input is very flexible, allowing inputs like 2200, 2.2k, or 2k2. The input also features " +
+      "smart rounding to the nearest valid value."
   },
   {
     title: "Electra Distortion Electric Guitar Pedal",
@@ -125,8 +127,15 @@ const PROJECTS = [
     image: "media/electra_breadboard_1.png", // e.g. "projects/reverb-pedal.jpg" — photo of the built pedal
     measurementImage: "", // e.g. "projects/reverb-freq-response.png"
     longDescription:
-      "Add a fuller writeup here — design goals, topology choices, what to " +
-      "improve next time, measured results, etc. This shows in the expanded view only.",
+      "I started my electric guitar pedal design journey with a distortion pedal to " +
+      "to become familiar with common elements in pedal circuits, such as various " + 
+      "buffers and filters. The circuit utilizes a common emitter buffer to drive " +
+      "an asymmetrical diode clipping stage to generate a mix of both even-order and " +
+      "odd-order harmonics, which mimics real tube amplifier behavior. I had two iterations " +
+      "of the diode clipping stage. A 2-1 1N4148 parallel diode configuration and a 1N270 and " +
+      "1N5819 configuration.",
+      // Add a fuller writeup here — design goals, topology choices, what to
+      //improve next time, measured results, etc. This shows in the expanded view only
   },
   // Copy any block above, paste it here, and edit the fields to add another project.
   // Leave liveUrl or repoUrl as "" to hide that link on the card.
