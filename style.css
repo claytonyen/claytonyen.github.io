@@ -286,6 +286,13 @@ code { font-family: var(--f-mono); background: var(--paper-dim); padding: 0.1em 
 }
 .project-card { position: relative; }
 
+.pm-audio-wrap { margin-bottom: 20px; }
+.pm-audio-label {
+  font-size: 11px; color: var(--accent); text-transform: uppercase;
+  letter-spacing: 0.05em; margin-bottom: 8px;
+}
+.pm-audio { width: 100%; }
+
 /* ==========================================================================
    SKILLS
    ========================================================================== */
