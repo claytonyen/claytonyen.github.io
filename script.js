@@ -96,7 +96,7 @@ const PROJECTS = [
     measurementImage: "media/Frequency_Response_Screenshot.png", // e.g. "projects/reverb-freq-response.png"
     longDescription:
       "Equalizers help to shape the audio signal using filters. You can make your tone brighter by lifting the treble, " +
-      "thicker by raising the mids, or darker by increasing the bass. My three channel equalizer design does just that, ", +
+      "thicker by raising the mids, or darker by increasing the bass. My three channel equalizer design does just that, " +
       "achieved using a gyrator peak filter for each channel into an op-amp mixer which is configured as a swinging input, " +
       "unity gain noninverting amplifier. The circuit also has Sallen-Key low pass filter and high pass filters to get rid of " +
       "unwanted low frequency hum and high frequency buzz."
@@ -115,7 +115,7 @@ const PROJECTS = [
     longDescription:
       "I wanted to streamline breadboard prototyping for my projects, so I made a GUI using Python " +
       "and its TKinter package. It supports common 4, 5, and 6 band resistors with full bidirectional conversion: " +
-      "pick band colors to see the value or type a resistance value to see the band colors. ", +
+      "pick band colors to see the value or type a resistance value to see the band colors. " +
       "The value input is very flexible, allowing inputs like 2200, 2.2k, or 2k2. The input also features " +
       "smart rounding to the nearest valid value."
   },
