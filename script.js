@@ -80,6 +80,7 @@ const PROJECTS = [
     featured: false,
     image: "", // e.g. "projects/reverb-pedal.jpg" — photo of the built pedal
     measurementImage: "", // e.g. "projects/reverb-freq-response.png"
+    audio: "",
     longDescription:
       "Work in " +
       "Progress",
@@ -94,6 +95,7 @@ const PROJECTS = [
     featured: false,
     image: "media/Circuit_Screenshot.png", // e.g. "projects/reverb-pedal.jpg" — photo of the built pedal
     measurementImage: "media/Frequency_Response_Screenshot.png", // e.g. "projects/reverb-freq-response.png"
+    audio: "media/eq_demo.wav",
     longDescription:
       "Equalizers help to shape the audio signal using filters. You can make your tone brighter by lifting the treble, " +
       "thicker by raising the mids, or darker by increasing the bass. My three channel equalizer design does just that, " +
@@ -129,6 +131,7 @@ const PROJECTS = [
     featured: false,
     image: "media/electra_breadboard_1.png", // e.g. "projects/reverb-pedal.jpg" — photo of the built pedal
     measurementImage: "", // e.g. "projects/reverb-freq-response.png"
+    audio: "media/distortion_demo.wav",
     longDescription:
       "I started my electric guitar pedal design journey with a distortion pedal to " +
       "to become familiar with common elements in pedal circuits, such as various " + 
@@ -279,6 +282,17 @@ function openProjectModal(proj) {
     measImg.alt = `${proj.title} - measurement`;
     content.appendChild(measImg);
   }
+
+   if (proj.audio) {
+     const audioWrap = el("div", "pm-audio-wrap");
+     audioWrap.appendChild(el("p", "pm-audio-label mono", "Audio demo"));
+     const audio = document.createElement("audio");
+     audio.controls = true;
+     audio.src = proj.audio;
+     audio.classList.add("pm-audio");
+     audioWrap.appendChild(audio);
+     content.appendChild(audioWrap);
+   }
 
   const links = el("div", "pc-links");
   if (proj.liveUrl) {
