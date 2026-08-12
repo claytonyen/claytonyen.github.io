@@ -161,12 +161,12 @@ code { font-family: var(--f-mono); background: var(--paper-dim); padding: 0.1em 
    a laptop-or-smaller screen anyway. */
 .hero-ascii {
   position: absolute;
-  right: 0; top: 0;
-  width: 42%; height: 100%;
+  right: 45px; top: 0; /* ~5 character-cells left of the edge (cellSize:9 in site-ascii.js) */
+  width: 50%; height: 100%;
   z-index: 0;
   display: none;
 }
-@media (min-width: 1280px) {
+@media (min-width: 1536px) {
   .hero-ascii { display: block; }
 }
 
