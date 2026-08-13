@@ -71,21 +71,6 @@ const EXPERIENCE = [
 
 const PROJECTS = [
   {
-    title: "Reverb Electric Guitar Pedal",
-    description:
-      "Pedal that features fast reverb or dark reverb with pre-delay.",
-    tags: ["Analog Circuit Design"],
-    liveUrl: "",
-    repoUrl: "https://github.com/claytonyen/reverb-pedal",
-    featured: false,
-    image: "", // e.g. "projects/reverb-pedal.jpg" — photo of the built pedal
-    measurementImage: "", // e.g. "projects/reverb-freq-response.png"
-    audio: "",
-    longDescription:
-      "Work in " +
-      "Progress",
-  },
-  {
     title: "3-Channel Equalizer Electric Guitar Pedal",
     description:
       "Equalizer pedal has 3 near-independent channel modification to shape audio signal",
@@ -104,6 +89,21 @@ const PROJECTS = [
       "unwanted low frequency hum and high frequency buzz. The audio demo is an extreme case of boosting the treble and reducing " +
       "the bass."
    }, 
+   {
+    title: "Reverb Electric Guitar Pedal",
+    description:
+      "Pedal that features fast reverb or dark reverb with pre-delay.",
+    tags: ["Analog Circuit Design"],
+    liveUrl: "",
+    repoUrl: "https://github.com/claytonyen/reverb-pedal",
+    featured: false,
+    image: "", // e.g. "projects/reverb-pedal.jpg" — photo of the built pedal
+    measurementImage: "", // e.g. "projects/reverb-freq-response.png"
+    audio: "",
+    longDescription:
+      "Work in " +
+      "Progress",
+  },
   {
     title: "Resistor Color Code Reader GUI",
     description:
