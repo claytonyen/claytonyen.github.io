@@ -348,26 +348,27 @@ code { font-family: var(--f-mono); background: var(--paper-dim); padding: 0.1em 
     grid-template-columns: repeat(3, 1fr); 
   }
 
-  /* Featured card spans 2 columns with named grid areas */
+  /* Featured card spans 2 columns with tight row packing */
   .project-card.card-featured {
     grid-column: span 2;
     grid-row: span 1;
     display: grid;
     grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto auto 1fr; /* Packs content tightly, leaves flex space above footer */
     grid-template-areas:
       "title title"
       "thumb thumb"
       "desc  audio"
       "link  link";
-    gap: 16px 20px;
-    align-items: center;
+    gap: 14px 20px;
+    align-content: start; /* Prevents CSS Grid from stretching row gaps vertically */
   }
 
   .project-card.card-featured .pc-title { 
     grid-area: title; 
   }
 
-  /* Centered, high-detail circuit image spanning full card width */
+  /* Strip the outer wrapper box entirely */
   .project-card.card-featured .pc-thumb { 
     grid-area: thumb; 
     width: 100%;
@@ -383,9 +384,9 @@ code { font-family: var(--f-mono); background: var(--paper-dim); padding: 0.1em 
   /* Single, crisp frame hugging the schematic image directly */
   .project-card.card-featured .pc-thumb img {
     width: 100%;
-    max-height: 260px; /* Gives the schematic plenty of breathing room */
+    max-height: 260px;
     object-fit: contain; 
-    border: 1px solid rgba(20, 26, 31, 0.2); /* Tight border directly around the graphic */
+    border: 1px solid rgba(20, 26, 31, 0.2);
     border-radius: var(--radius);
     padding: 0;
   }
@@ -403,6 +404,8 @@ code { font-family: var(--f-mono); background: var(--paper-dim); padding: 0.1em 
 
   .project-card.card-featured .pc-expand { 
     grid-area: link; 
+    align-self: end; /* Pins footer link to the bottom of the card */
+    margin-top: 12px;
   }
 }
 
