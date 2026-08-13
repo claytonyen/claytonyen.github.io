@@ -405,3 +405,44 @@ code { font-family: var(--f-mono); background: var(--paper-dim); padding: 0.1em 
   border: 1px solid rgba(20,26,31,0.1);
 }
 .pm-desc { color: var(--ink-soft); margin-bottom: 20px; white-space: pre-line; }
+
+/* ==========================================================================
+   MOBILE PROJECT CARD VISIBILITY FIX
+   ========================================================================== */
+@media (max-width: 760px) {
+  /* Increase grid gap to give cards explicit vertical separation */
+  .project-grid {
+    gap: 28px;
+  }
+
+  .project-card {
+    /* Pure white background gives high contrast against var(--paper) */
+    background: #FFFFFF;
+    
+    /* Stronger structural border with a tactile dark top anchor */
+    border: 1px solid rgba(20, 26, 31, 0.22);
+    border-top: 3px solid var(--ink); 
+    
+    /* Default ambient shadow since touch devices lack hover triggers */
+    box-shadow: 0 6px 18px rgba(20, 26, 31, 0.08);
+    
+    /* Slightly tighter padding for smaller viewports */
+    padding: 20px;
+  }
+
+  /* Make thumbnail borders crisp against the white card body */
+  .pc-thumb {
+    border: 1px solid rgba(20, 26, 31, 0.15);
+    background: var(--paper-dim);
+  }
+
+  /* Make the "View details" link pop as a distinct action area */
+  .pc-expand {
+    display: inline-block;
+    margin-top: 8px;
+    padding-top: 8px;
+    border-top: 1px dashed rgba(20, 26, 31, 0.15);
+    color: var(--accent);
+    font-weight: 500;
+  }
+}
