@@ -270,12 +270,8 @@ code { font-family: var(--f-mono); background: var(--paper-dim); padding: 0.1em 
 
 .project-card {
   position: relative;
-  /* Pure crisp white lifts off --paper (#EEF1EE) background cleanly */
-  background: #FFFFFF;
-  
-  /* High contrast border with a distinct dark top anchor line */
-  border: 1px solid rgba(20, 26, 31, 0.2);
-  border-top: 3px solid var(--accent);
+  background: var(--paper-dim);
+  border: 1px solid rgba(20, 26, 31, 0.15);
   border-radius: var(--radius);
   
   padding: 24px;
@@ -284,15 +280,21 @@ code { font-family: var(--f-mono); background: var(--paper-dim); padding: 0.1em 
   gap: 12px;
   cursor: pointer;
 
-  /* Ambient resting shadow for desktop & mobile depth */
-  box-shadow: 0 4px 16px rgba(20, 26, 31, 0.06);
   transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
 .project-card:hover {
   transform: translateY(-4px);
   border-color: var(--accent);
-  box-shadow: 0 12px 28px rgba(20, 26, 31, 0.12);
+  box-shadow: 0 10px 24px rgba(20, 26, 31, 0.08);
+}
+
+/* The accent bar is reserved for the featured card only — it now means
+   something ("this is the one I'd point you to first") instead of
+   repeating on every card as pure decoration. */
+.project-card.card-featured {
+  background: #FFFFFF;
+  border-top: 3px solid var(--accent);
 }
 
 .project-card:focus-visible { 
