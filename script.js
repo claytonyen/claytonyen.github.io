@@ -90,39 +90,6 @@ const PROJECTS = [
       "the bass."
    }, 
    {
-    title: "Reverb Electric Guitar Pedal",
-    description:
-      "Pedal that features fast reverb or dark reverb with pre-delay.",
-    tags: ["Analog Circuit Design"],
-    liveUrl: "",
-    repoUrl: "https://github.com/claytonyen/reverb-pedal",
-    featured: false,
-    image: "", // e.g. "projects/reverb-pedal.jpg" — photo of the built pedal
-    measurementImage: "", // e.g. "projects/reverb-freq-response.png"
-    audio: "",
-    longDescription:
-      "Work in " +
-      "Progress",
-  },
-  {
-    title: "Resistor Color Code Reader GUI",
-    description:
-      "User chooses band colors to get resistor value or inputs resistor value for band color.",
-    tags: ["Python", "TKinter"],
-    liveUrl: "", // add this
-    repoUrl: "https://github.com/claytonyen/resistor-code-reader",
-    featured: false,
-    image: "media/Resistor_Reader.png",
-    imageFit: "contain",
-    measurementImage: "",
-    longDescription:
-      "I wanted to streamline breadboard prototyping for my projects, so I made a GUI using Python " +
-      "and its TKinter package. It supports common 4, 5, and 6 band resistors with full bidirectional conversion: " +
-      "pick band colors to see the value or type a resistance value to see the band colors. " +
-      "The value input is very flexible, allowing inputs like 2200, 2.2k, or 2k2. The input also features " +
-      "smart rounding to the nearest valid value."
-  },
-  {
     title: "Electra Distortion Electric Guitar Pedal",
     description:
       "Pedal that uses CE amplifier and diode clipping stage for distortion effect. Has multiple iterations with different clipping stages.",
@@ -143,6 +110,39 @@ const PROJECTS = [
       "1N4148 configuration. The audio demo is of the 1N270 1N4148 configuration."
       // Add a fuller writeup here — design goals, topology choices, what to
       //improve next time, measured results, etc. This shows in the expanded view only
+  },
+  {
+    title: "Resistor Color Code Reader GUI",
+    description:
+      "User chooses band colors to get resistor value or inputs resistor value for band color.",
+    tags: ["Python", "TKinter"],
+    liveUrl: "", // add this
+    repoUrl: "https://github.com/claytonyen/resistor-code-reader",
+    featured: false,
+    image: "media/Resistor_Reader.png",
+    imageFit: "contain",
+    measurementImage: "",
+    longDescription:
+      "I wanted to streamline breadboard prototyping for my projects, so I made a GUI using Python " +
+      "and its TKinter package. It supports common 4, 5, and 6 band resistors with full bidirectional conversion: " +
+      "pick band colors to see the value or type a resistance value to see the band colors. " +
+      "The value input is very flexible, allowing inputs like 2200, 2.2k, or 2k2. The input also features " +
+      "smart rounding to the nearest valid value."
+  },
+  {
+    title: "Reverb Electric Guitar Pedal",
+    description:
+      "Pedal that features fast reverb or dark reverb with pre-delay.",
+    tags: ["Analog Circuit Design"],
+    liveUrl: "",
+    repoUrl: "https://github.com/claytonyen/reverb-pedal",
+    featured: false,
+    image: "", // e.g. "projects/reverb-pedal.jpg" — photo of the built pedal
+    measurementImage: "", // e.g. "projects/reverb-freq-response.png"
+    audio: "",
+    longDescription:
+      "Work in " +
+      "Progress",
   },
   // Copy any block above, paste it here, and edit the fields to add another project.
   // Leave liveUrl or repoUrl as "" to hide that link on the card.
