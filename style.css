@@ -371,20 +371,23 @@ code { font-family: var(--f-mono); background: var(--paper-dim); padding: 0.1em 
   .project-card.card-featured .pc-thumb { 
     grid-area: thumb; 
     width: 100%;
-    height: 220px; /* Expanded vertical height for circuit legibility */
-    aspect-ratio: auto;
-    background: var(--paper); /* Blends schematic background seamlessly */
-    border: 1px solid rgba(20, 26, 31, 0.12);
+    height: auto;
+    background: transparent;
+    border: none;
+    border-radius: 0;
+    padding: 0;
     display: flex;
-    align-items: center;
     justify-content: center;
   }
 
+  /* Single, crisp frame hugging the schematic image directly */
   .project-card.card-featured .pc-thumb img {
     width: 100%;
-    height: 100%;
-    object-fit: contain; /* Displays the complete schematic without cropping details */
-    padding: 8px;
+    max-height: 260px; /* Gives the schematic plenty of breathing room */
+    object-fit: contain; 
+    border: 1px solid rgba(20, 26, 31, 0.2); /* Tight border directly around the graphic */
+    border-radius: var(--radius);
+    padding: 0;
   }
 
   .project-card.card-featured .pc-desc { 
