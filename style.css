@@ -259,45 +259,115 @@ code { font-family: var(--f-mono); background: var(--paper-dim); padding: 0.1em 
 .ti-media-item img { width: 100%; height: 100%; object-fit: cover; display: block; }
 
 /* ==========================================================================
-   PROJECTS
+   GLOBAL PROJECT GRID & CARD VISIBILITY (DESKTOP & MOBILE)
    ========================================================================== */
-/* -- BENTO GRID UPGRADE -- */
 .project-grid { 
   display: grid; 
   grid-template-columns: 1fr; 
-  gap: 20px; 
-  grid-auto-flow: dense; /* Guarantees zero blank spaces in grid gaps */
+  gap: 28px; /* Increased breathing room between all cards */
+  grid-auto-flow: dense;
 }
 
+.project-card {
+  position: relative;
+  /* Pure crisp white lifts off --paper (#EEF1EE) background cleanly */
+  background: #FFFFFF;
+  
+  /* High contrast border with a distinct dark top anchor line */
+  border: 1px solid rgba(20, 26, 31, 0.2);
+  border-top: 3px solid var(--accent);
+  border-radius: var(--radius);
+  
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  cursor: pointer;
+
+  /* Ambient resting shadow for desktop & mobile depth */
+  box-shadow: 0 4px 16px rgba(20, 26, 31, 0.06);
+  transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--accent);
+  box-shadow: 0 12px 28px rgba(20, 26, 31, 0.12);
+}
+
+.project-card:focus-visible { 
+  outline: 2px solid var(--accent); 
+  outline-offset: 3px; 
+}
+
+/* Card image thumbnail container */
+.pc-thumb {
+  width: 100%; 
+  aspect-ratio: 16 / 10; 
+  border-radius: var(--radius);
+  overflow: hidden; 
+  background: var(--paper-dim);
+  border: 1px solid rgba(20, 26, 31, 0.12);
+}
+
+.pc-thumb img { 
+  width: 100%; 
+  height: 100%; 
+  object-fit: cover; 
+  display: block; 
+}
+
+.pc-title { 
+  font-family: var(--f-display); 
+  font-size: 1.15rem; 
+  font-weight: 600; 
+}
+
+.pc-desc { 
+  color: var(--ink-soft); 
+  font-size: 0.95rem; 
+  flex: 1; 
+}
+
+.pc-expand {
+  display: inline-block;
+  font-size: 12.5px; 
+  color: var(--accent); 
+  margin-top: auto; 
+  padding-top: 8px;
+  border-top: 1px dashed rgba(20, 26, 31, 0.15);
+  font-weight: 500;
+}
+
+
+/* ==========================================================================
+   DESKTOP BENTO LAYOUT (FEATURED CARD = WIDE 2x1 SPAN)
+   ========================================================================== */
 @media (min-width: 768px) {
   .project-grid { 
     grid-template-columns: repeat(3, 1fr); 
   }
 
-  /* Featured hero cards take up a 2x2 grid block */
+  /* EQ/Featured Card: Spans 2 columns wide, but stays 1 row high */
   .project-card.card-featured {
     grid-column: span 2;
-    grid-row: span 2;
+    grid-row: span 1;
+    border-top: 3px solid var(--accent); /* Accent red top bar to show importance */
   }
 
-  /* Tall cards take up 2 vertical rows */
-  .project-card.card-tall {
-    grid-row: span 2;
+  /* Internal side-by-side layout for the 2-column wide card */
+  .project-card.card-featured {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    align-items: start;
   }
-}
 
-/* Inline audio controller inside Bento Card */
-.bento-audio-preview {
-  margin-top: 12px;
-  padding: 10px;
-  background: var(--paper);
-  border: 1px solid rgba(20, 26, 31, 0.12);
-  border-radius: var(--radius);
-}
-
-.bento-audio-preview audio {
-  width: 100%;
-  height: 32px;
+  /* Make header, desc, and footer span full width inside the wide card */
+  .project-card.card-featured .pc-title,
+  .project-card.card-featured .pc-expand {
+    grid-column: span 2;
+  }
 }
 
 /* ==========================================================================
@@ -405,44 +475,3 @@ code { font-family: var(--f-mono); background: var(--paper-dim); padding: 0.1em 
   border: 1px solid rgba(20,26,31,0.1);
 }
 .pm-desc { color: var(--ink-soft); margin-bottom: 20px; white-space: pre-line; }
-
-/* ==========================================================================
-   MOBILE PROJECT CARD VISIBILITY FIX
-   ========================================================================== */
-@media (max-width: 760px) {
-  /* Increase grid gap to give cards explicit vertical separation */
-  .project-grid {
-    gap: 28px;
-  }
-
-  .project-card {
-    /* Pure white background gives high contrast against var(--paper) */
-    background: #FFFFFF;
-    
-    /* Stronger structural border with a tactile dark top anchor */
-    border: 1px solid rgba(20, 26, 31, 0.22);
-    border-top: 3px solid var(--ink); 
-    
-    /* Default ambient shadow since touch devices lack hover triggers */
-    box-shadow: 0 6px 18px rgba(20, 26, 31, 0.08);
-    
-    /* Slightly tighter padding for smaller viewports */
-    padding: 20px;
-  }
-
-  /* Make thumbnail borders crisp against the white card body */
-  .pc-thumb {
-    border: 1px solid rgba(20, 26, 31, 0.15);
-    background: var(--paper-dim);
-  }
-
-  /* Make the "View details" link pop as a distinct action area */
-  .pc-expand {
-    display: inline-block;
-    margin-top: 8px;
-    padding-top: 8px;
-    border-top: 1px dashed rgba(20, 26, 31, 0.15);
-    color: var(--accent);
-    font-weight: 500;
-  }
-}
