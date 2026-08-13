@@ -261,37 +261,44 @@ code { font-family: var(--f-mono); background: var(--paper-dim); padding: 0.1em 
 /* ==========================================================================
    PROJECTS
    ========================================================================== */
-.project-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 22px; }
-.project-card {
-  border: 1px solid rgba(20,26,31,0.15); border-radius: var(--radius);
-  background: var(--paper-dim);
-  padding: 26px; display: flex; flex-direction: column; gap: 12px;
-  transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+/* -- BENTO GRID UPGRADE -- */
+.project-grid { 
+  display: grid; 
+  grid-template-columns: 1fr; 
+  gap: 20px; 
+  grid-auto-flow: dense; /* Guarantees zero blank spaces in grid gaps */
 }
-.project-card:hover {
-  transform: translateY(-4px);
-  border-color: var(--accent);
-  box-shadow: 0 10px 24px rgba(20,26,31,0.08);
-}
-.pc-title { font-family: var(--f-display); font-size: 1.15rem; font-weight: 600; }
-.pc-desc { color: var(--ink-soft); font-size: 0.95rem; flex: 1; }
-.pc-links { display: flex; gap: 16px; margin-top: 4px; }
-.pc-links a { font-family: var(--f-mono); font-size: 12.5px; color: var(--accent); border-bottom: 1px solid transparent; }
-.pc-links a:hover { border-color: var(--accent); }
-.pc-featured {
-  position: absolute; top: -1px; right: 18px;
-  background: var(--accent-cool); color: var(--navy);
-  font-family: var(--f-mono); font-size: 10.5px; letter-spacing: 0.04em;
-  padding: 3px 9px; border-radius: 0 0 4px 4px;
-}
-.project-card { position: relative; }
 
-.pm-audio-wrap { margin-bottom: 20px; }
-.pm-audio-label {
-  font-size: 11px; color: var(--accent); text-transform: uppercase;
-  letter-spacing: 0.05em; margin-bottom: 8px;
+@media (min-width: 768px) {
+  .project-grid { 
+    grid-template-columns: repeat(3, 1fr); 
+  }
+
+  /* Featured hero cards take up a 2x2 grid block */
+  .project-card.card-featured {
+    grid-column: span 2;
+    grid-row: span 2;
+  }
+
+  /* Tall cards take up 2 vertical rows */
+  .project-card.card-tall {
+    grid-row: span 2;
+  }
 }
-.pm-audio { width: 100%; }
+
+/* Inline audio controller inside Bento Card */
+.bento-audio-preview {
+  margin-top: 12px;
+  padding: 10px;
+  background: var(--paper);
+  border: 1px solid rgba(20, 26, 31, 0.12);
+  border-radius: var(--radius);
+}
+
+.bento-audio-preview audio {
+  width: 100%;
+  height: 32px;
+}
 
 /* ==========================================================================
    SKILLS
