@@ -341,32 +341,65 @@ code { font-family: var(--f-mono); background: var(--paper-dim); padding: 0.1em 
 
 
 /* ==========================================================================
-   DESKTOP BENTO LAYOUT (FEATURED CARD = WIDE 2x1 SPAN)
+   DESKTOP BENTO LAYOUT (FEATURED EQ CARD - EXPANDED SCHEMATIC & BALANCED GRID)
    ========================================================================== */
 @media (min-width: 768px) {
   .project-grid { 
     grid-template-columns: repeat(3, 1fr); 
   }
 
-  /* EQ/Featured Card: Spans 2 columns wide, but stays 1 row high */
+  /* Featured card spans 2 columns with named grid areas */
   .project-card.card-featured {
     grid-column: span 2;
     grid-row: span 1;
-    border-top: 3px solid var(--accent); /* Accent red top bar to show importance */
-  }
-
-  /* Internal side-by-side layout for the 2-column wide card */
-  .project-card.card-featured {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 16px;
-    align-items: start;
+    grid-template-areas:
+      "title title"
+      "thumb thumb"
+      "desc  audio"
+      "link  link";
+    gap: 16px 20px;
+    align-items: center;
   }
 
-  /* Make header, desc, and footer span full width inside the wide card */
-  .project-card.card-featured .pc-title,
-  .project-card.card-featured .pc-expand {
-    grid-column: span 2;
+  .project-card.card-featured .pc-title { 
+    grid-area: title; 
+  }
+
+  /* Centered, high-detail circuit image spanning full card width */
+  .project-card.card-featured .pc-thumb { 
+    grid-area: thumb; 
+    width: 100%;
+    height: 220px; /* Expanded vertical height for circuit legibility */
+    aspect-ratio: auto;
+    background: var(--paper); /* Blends schematic background seamlessly */
+    border: 1px solid rgba(20, 26, 31, 0.12);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .project-card.card-featured .pc-thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain; /* Displays the complete schematic without cropping details */
+    padding: 8px;
+  }
+
+  .project-card.card-featured .pc-desc { 
+    grid-area: desc; 
+    align-self: center;
+  }
+
+  .project-card.card-featured .bento-audio-preview { 
+    grid-area: audio; 
+    margin: 0;
+    align-self: center;
+  }
+
+  .project-card.card-featured .pc-expand { 
+    grid-area: link; 
   }
 }
 
