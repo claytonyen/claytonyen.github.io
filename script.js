@@ -92,7 +92,7 @@ const PROJECTS = [
     tags: ["LTSpice", "Analog Circuit Design"],
     liveUrl: "",
     repoUrl: "https://github.com/claytonyen/3-channel-eq-pedal",
-    featured: false,
+    featured: true,
     image: "media/Circuit_Screenshot.png", // e.g. "projects/reverb-pedal.jpg" — photo of the built pedal
     measurementImage: "media/Frequency_Response_Screenshot.png", // e.g. "projects/reverb-freq-response.png"
     audio: "media/eq_demo.mp3",
