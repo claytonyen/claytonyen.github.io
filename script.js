@@ -423,18 +423,20 @@ function setupScrollReveal() {
     
     gsap.fromTo(
       revealTargets,
-      { 
-        y: 35, 
-        opacity: 0, 
-        scale: 0.97 
+      {
+        y: 16,
+        opacity: 0,
       },
       {
         y: 0,
         opacity: 1,
-        scale: 1,
-        duration: 0.8,
-        ease: "power3.out",
-        stagger: 0.12,
+        duration: 0.9,
+        // matches --ease-out (cubic-bezier(0.16, 1, 0.3, 1)) in style.css —
+        // expo.out is the closest built-in GSAP ease to that curve: fast
+        // start, no overshoot, long quiet settle. Swap in CustomEase if you
+        // want the exact bezier.
+        ease: "expo.out",
+        stagger: 0.08,
         scrollTrigger: {
           trigger: section,
           start: "top 80%",
