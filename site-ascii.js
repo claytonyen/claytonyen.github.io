@@ -50,28 +50,32 @@
   };
 
   function init() {
-    const canvas = document.getElementById("hero-ascii");
-    if (!canvas) return;
-    if (window.innerWidth < MIN_WIDTH) return;
+  const canvas = document.getElementById("hero-ascii");
+  if (!canvas) return;
 
-    const img = new Image();
-    img.src = SOURCE_PHOTO;
-    img.decoding = "async";
-    img.onload = () => {
-      const effect = new AsciiPhotoEffect(canvas, img, CONFIG);
+  const img = new Image();
+  img.src = SOURCE_PHOTO;
+  img.decoding = "async";
+  img.onload = () => {
+    let effect = null;
+    let raf = null;
+
+    const renderIfWide = () => {
+      if (window.innerWidth < MIN_WIDTH) return;
+      if (!effect) effect = new AsciiPhotoEffect(canvas, img, CONFIG);
       effect.render();
-      let raf = null;
-      window.addEventListener("resize", () => {
-        if (raf) cancelAnimationFrame(raf);
-        raf = requestAnimationFrame(() => {
-          if (window.innerWidth >= MIN_WIDTH) effect.render();
-        });
-      });
     };
-    img.onerror = () => {
-      console.warn("[site-ascii] could not load " + SOURCE_PHOTO + " — check the path at the top of site-ascii.js");
-    };
-  }
+
+    renderIfWide();
+    window.addEventListener("resize", () => {
+      if (raf) cancelAnimationFrame(raf);
+      raf = requestAnimationFrame(renderIfWide);
+    });
+  };
+  img.onerror = () => {
+    console.warn("[site-ascii] could not load " + SOURCE_PHOTO + " — check the path at the top of site-ascii.js");
+  };
+}
 
   document.addEventListener("DOMContentLoaded", init);
 })();
