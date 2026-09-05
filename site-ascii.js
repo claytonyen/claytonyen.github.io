@@ -21,7 +21,7 @@
   "use strict";
 
   const SOURCE_PHOTO = "media/new_hero_picture.png";
-  const MIN_WIDTH = 1536; // keep in sync with the CSS breakpoint
+  const MIN_WIDTH = 1080; // keep in sync with the CSS breakpoint
 
   const CONFIG = {
     renderMode: "characters",
