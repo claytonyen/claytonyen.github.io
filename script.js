@@ -46,7 +46,7 @@ const EXPERIENCE = [
       "I worked on the three-phase current-sensing circuit for their " +
       "BLDC motor controller, using bidirectional current-sense amplifiers and precision " +
       "shunt resistors for closed-loop control. I optimized component " +
-      "placement and routing in Altium, cutting board size roughly 10%." +
+      "placement and routing in Altium, cutting board size roughly 10%. " +
       "When parts went obsolete I sourced and qualified pin-compatible replacements.",
     // Add these once you have them — same pattern as PROJECTS images below.
     pcbImage: "", // e.g. "media/zephyr-pcb-altium.png"
