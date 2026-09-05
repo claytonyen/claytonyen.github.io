@@ -164,13 +164,15 @@ code { font-family: var(--f-mono); background: var(--paper-dim); padding: 0.1em 
    clearance from .hero-inner, and a portrait this size isn't legible on
    a laptop-or-smaller screen anyway. */
 .hero-ascii {
+  --ascii-gutter: 20px;
   position: absolute;
-  right: 45px; top: 0; /* ~5 character-cells left of the edge (cellSize:9 in site-ascii.js) */
-  width: 50%; height: 100%;
+  top: 0; bottom: 0;
+  left: calc(var(--edge) + 640px + var(--ascii-gutter));
+  right: var(--edge);
   z-index: 0;
   display: none;
 }
-@media (min-width: 1536px) {
+@media (min-width: 1080px) {
   .hero-ascii { display: block; }
 }
 
