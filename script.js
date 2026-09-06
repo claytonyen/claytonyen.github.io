@@ -149,7 +149,7 @@ const PROJECTS = [
 ];
 
 const SKILLS = [
-  { category: "Languages", items: ["Python", "C++", "LaTeX"] },
+  { category: "Languages", items: ["Python", "C/C++", "LaTeX"] },
   { category: "Software", items: ["Altium Designer", "KiCad", "LTspice", "VS Code", "Git", "OnShape", "Adobe Suite", "Davinci Resolve"] },
 ];
 
