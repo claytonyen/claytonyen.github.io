@@ -265,7 +265,7 @@ code { font-family: var(--f-mono); background: var(--paper-dim); padding: 0.1em 
 
 .ti-body { display: flex; flex-direction: column; gap: 16px; }
 .ti-blurb { color: var(--ink-soft); font-size: 0.98rem; max-width: 64ch; }
-.ti-media { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 14px; }
+.ti-media { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 14px; max-width: 64ch; }
 .ti-media-item {
   margin: 0; aspect-ratio: 16 / 10; border-radius: var(--radius);
   overflow: hidden; background: var(--paper-dim);
