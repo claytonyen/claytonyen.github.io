@@ -164,7 +164,7 @@ code { font-family: var(--f-mono); background: var(--paper-dim); padding: 0.1em 
    clearance from .hero-inner, and a portrait this size isn't legible on
    a laptop-or-smaller screen anyway. */
 .hero-ascii {
-  --ascii-gutter: -20px;
+  --ascii-gutter: -150px;
   position: absolute;
   top: 0; left: calc(var(--edge) + 640px + var(--ascii-gutter));
   width: calc(100% - (var(--edge) * 2) - 640px - var(--ascii-gutter));
