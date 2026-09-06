@@ -166,9 +166,9 @@ code { font-family: var(--f-mono); background: var(--paper-dim); padding: 0.1em 
 .hero-ascii {
   --ascii-gutter: 20px;
   position: absolute;
-  top: 0; bottom: 0;
-  left: calc(var(--edge) + 640px + var(--ascii-gutter));
-  right: var(--edge);
+  top: 0; left: calc(var(--edge) + 640px + var(--ascii-gutter));
+  width: calc(100% - (var(--edge) * 2) - 640px - var(--ascii-gutter));
+  height: 100%;
   z-index: 0;
   display: none;
 }
