@@ -171,7 +171,7 @@ code { font-family: var(--f-mono); background: var(--paper-dim); padding: 0.1em 
   height: 100%;
   z-index: 0;
   display: none;
-  transform: translateX(-100px);
+  transform: translateX(-200px);
 }
 @media (min-width: 1080px) {
   .hero-ascii { display: block; }
