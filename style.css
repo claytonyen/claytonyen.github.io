@@ -438,16 +438,6 @@ code { font-family: var(--f-mono); background: var(--paper-dim); padding: 0.1em 
    FOOTER — TITLE BLOCK
    ========================================================================== */
 .titleblock { position: relative; overflow: hidden; background: var(--navy); color: #DCE3EA; padding: 0 var(--edge) 28px; }
-.footer-grid {
-  position: absolute; inset: 0; z-index: 0;
-  background-image:
-    linear-gradient(var(--navy-line) 1px, transparent 1px),
-    linear-gradient(90deg, var(--navy-line) 1px, transparent 1px);
-  background-size: 48px 48px;
-  opacity: 0.5;
-  mask-image: radial-gradient(ellipse 90% 70% at 70% 15%, black 40%, transparent 85%);
-  pointer-events: none;
-}
 .titleblock-inner { position: relative; z-index: 1; max-width: var(--max); margin: 0 auto; padding-top: 64px; }
 .tb-row { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; padding: 10px 0; border-top: 1px solid var(--navy-line); font-size: 12px; }
 .tb-head span { color: #7C8AA0; text-transform: uppercase; letter-spacing: 0.06em; font-size: 10.5px; }
