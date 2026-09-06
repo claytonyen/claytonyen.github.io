@@ -51,9 +51,9 @@ const EXPERIENCE = [
     // Add these once you have them — same pattern as PROJECTS images below.
     pcbImage: "", // e.g. "media/zephyr-pcb-altium.png"
     pcbImageAlt: "PCB layout in Altium Designer",
-    productImage: "", // e.g. "media/zephyr-product.jpg"
-    productImageAlt: "Finished motor controller board",
-  }, // make sure to add a comma here once you add another experience
+    productImage: "media/Skateboard.png", // e.g. "media/zephyr-product.jpg"
+    productImageAlt: "Zephyr Product",
+  },
   // {
   //   role: "Software Engineering Intern",
   //   company: "Earlier Company",
