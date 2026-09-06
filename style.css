@@ -167,17 +167,18 @@ code { font-family: var(--f-mono); background: var(--paper-dim); padding: 0.1em 
   --ascii-gutter: 20px;
   position: absolute;
   top: 0; left: calc(var(--edge) + 640px + var(--ascii-gutter));
+  left: calc(var(--edge) + 640px + var(--ascii-gutter) + 12vw);
   width: calc(100% - (var(--edge) * 2) - 640px - var(--ascii-gutter));
   height: 100%;
   z-index: 0;
   display: none;
-  transform: translateX(-400px);
+  transform: translateX(-350px);
 }
 @media (min-width: 1080px) {
   .hero-ascii { display: block; }
 }
 
-.hero-inner { position: relative; max-width: 640px; margin: 0; z-index: 2; }
+.hero-inner { position: relative; max-width: 640px; margin-left: 12vw; z-index: 2; }
 .hero-name {
   font-family: var(--f-serif);
   font-size: clamp(2.6rem, 6vw, 4.4rem);
